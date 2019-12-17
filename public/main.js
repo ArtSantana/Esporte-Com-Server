@@ -4,7 +4,7 @@ var recPreset = 1, playSwitch = 0;
 var matrizBBack1 = [], matrizBBack2 = [], matrizBGo1 = [], matrizBGo2 = []
 	, matrizRBack1 = [], matrizRBack2 = [], matrizRGo1 = [], matrizRGo2 = [];
 //////////////
-var recFlag = null;
+var recFlag = null, flagBackRecord = 1;
 
 
 for(i = 0; i<11; i++)
@@ -42,25 +42,37 @@ for(i=1; i<12; i++)
 
 function Gravador()
 {
-	if(recFlag == false)
+	if(recFlag == false) // BOTAO STOP
 	{
 		recFlag = true;
-		if(recPreset == 1)
-		{		
-			flagGoRecord = 1;
-			matrizGoPositions();			
-			ReturnPosition();
-		}
-		else if(recPreset == 2)
+		// ESCOLHA DO PRESET
+		switch(recPreset)
 		{
-			flagGoRecord = 2;
-			matrizGoPositions();
-			ReturnPosition2();
+			case 1:
+				flagGoRecord = 1;
+				matrizGoPositions();
+				ReturnPosition();
+				post();
+				break;
+			case 2:
+				flagGoRecord = 2;
+				matrizGoPositions();
+				ReturnPosition2();
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
 		}
 	}
 	// No REC entra sempre primeiro aqui.
 	else
 	{
+		alert("Selecione o preset a ser gravado");
 		matrizBackPositions();
 
 		recFlag = false;
@@ -123,6 +135,6 @@ $("#presetBUtton6").click(()=>
 
 $("#rec").click(() =>
 {
-	alert("Selecione o preset a ser gravado");
+
 	Gravador();
 });
