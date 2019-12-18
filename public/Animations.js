@@ -1,4 +1,8 @@
 let toggleA = true, toggleB = false;
+// VISIBILIDADE DOS TIMES
+$("#black").click(toggleTeamA);
+
+$("#red").click(toggleTeamB);
 
 function ReturnPosition()
 {

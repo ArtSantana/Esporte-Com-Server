@@ -41,13 +41,10 @@ for(i = 0; i<11; i++)
 	matrizRGo6[i] = [];
 
 }
-
-
 /*
 As variáveis back são responsáveis por fazer animação dos jogadores voltando a suas posições inicias,
 que precedem a animação. Portanto, as variáveis go determinam a posição final da animação.
 */
-
 // Removendo o clique direito da aplicação
 document.addEventListener('contextmenu', event => event.preventDefault());
 // Deixando os jogadores draggable
@@ -66,35 +63,39 @@ function Gravador()
 	if(recFlag == false) // BOTAO STOP
 	{
 		recFlag = true;
-
 		matrizGoPositions();
-
 		// PARA FAZER O POST NO SERVER	
 		switch(flagGoRecord)
 		{
 			case 1:
 				data.dataGo = matrizBGo1;
 				data.dataBack = matrizBBack1;
+				data.presetNumber = 1;
 				break;
 			case 2:
 				data.dataGO = matrizBGo2;
 				data.dataBack = matrizBBack2;
+				data.presetNumber = 2;
 				break;
 			case 3:
 				data.dataGO = matrizBGo3;
 				data.dataBack = matrizBBack3;
+				data.presetNumber = 3;
 				break;
 			case 4:
 				data.dataGO = matrizBGo4;
 				data.dataBack = matrizBBack4;
+				data.presetNumber = 4;
 				break;
 			case 5:
 				data.dataGO = matrizBGo5;
 				data.dataBack = matrizBBack5;
+				data.presetNumber = 5;
 				break;
 			case 6:
 				data.dataGO = matrizBGo6;
 				data.dataBack = matrizBBack6;
+				data.presetNumber = 6;
 				break;
 		}
 		postData = data;
@@ -108,12 +109,6 @@ function Gravador()
 		recFlag = false;
 	}
 }
-
-// VISIBILIDADE DOS TIMES
-$("#black").click(toggleTeamA);
-
-$("#red").click(toggleTeamB);
-
 
 $("#play").click(function()
 {

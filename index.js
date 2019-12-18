@@ -38,6 +38,7 @@ app.post('/api', (request, reponse) =>
         matrizBack: request.body.dataBack,
     }
     console.log("Request received");
+    console.log(request.body);
 
     db.preset1.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
 })
