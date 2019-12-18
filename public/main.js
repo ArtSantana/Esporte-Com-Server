@@ -1,23 +1,44 @@
 var returnPositions = new TimelineLite(), returnPositions2 = new TimelineLite();
 var goPositions = new TimelineLite(), goPositions2 = new TimelineLite();
-var recPreset = 1, playSwitch = 0;
+var playSwitch = 0;
 var matrizBBack1 = [], matrizBBack2 = [], matrizBGo1 = [], matrizBGo2 = []
+	, matrizBBack3 = [], matrizBBack4 = [], matrizBBack5 = [], matrizBBack6 = []
+	, matrizBGo3 = [], matrizBGo4 = [], matrizBGo5 = [], matrizBGo6 = []
+	, matrizRBack3 = [], matrizRBack4 = [], matrizRBack5 = [], matrizRBack6 = []
+	, matrizRGo3 = [], matrizRGo4 = [], matrizRGo5 = [], matrizRGo6 = []
 	, matrizRBack1 = [], matrizRBack2 = [], matrizRGo1 = [], matrizRGo2 = [];
+
 //////////////
-var recFlag = null, flagBackRecord = 1;
+var recFlag = null, flagBackRecord = 1, recording = false;
 
 
 for(i = 0; i<11; i++)
 {
 	matrizBBack1[i] = [];
 	matrizBBack2[i] = [];
+	matrizBBack3[i] = [];
+	matrizBBack4[i] = [];
+	matrizBBack5[i] = [];
+	matrizBBack6[i] = [];
 	matrizBGo1[i] = [];
 	matrizBGo2[i] = [];
+	matrizBGo3[i] = [];
+	matrizBGo4[i] = [];
+	matrizBGo5[i] = [];
+	matrizBGo6[i] = [];
 
 	matrizRBack1[i] = [];
 	matrizRBack2[i] = [];
+	matrizRBack3[i] = [];
+	matrizRBack4[i] = [];
+	matrizRBack5[i] = [];
+	matrizRBack6[i] = [];
 	matrizRGo1[i] = [];
 	matrizRGo2[i] = [];
+	matrizRGo3[i] = [];
+	matrizRGo4[i] = [];
+	matrizRGo5[i] = [];
+	matrizRGo6[i] = [];
 
 }
 
@@ -45,36 +66,14 @@ function Gravador()
 	if(recFlag == false) // BOTAO STOP
 	{
 		recFlag = true;
-		// ESCOLHA DO PRESET
-		switch(recPreset)
-		{
-			case 1:
-				flagGoRecord = 1;
-				matrizGoPositions();
-				ReturnPosition();
-				post();
-				break;
-			case 2:
-				flagGoRecord = 2;
-				matrizGoPositions();
-				ReturnPosition2();
-				break;
-			case 3:
-				break;
-			case 4:
-				break;
-			case 5:
-				break;
-			case 6:
-				break;
-		}
+
+		matrizGoPositions();
 	}
 	// No REC entra sempre primeiro aqui.
 	else
 	{
 		alert("Selecione o preset a ser gravado");
-		matrizBackPositions();
-
+		recording = true;
 		recFlag = false;
 	}
 }
@@ -88,7 +87,7 @@ $("#red").click(toggleTeamB);
 $("#play").click(function()
 {
 	// Troca de preset ----------
-	switch(playSwitch)
+	switch(playSwitch)	
 	{
 		case 1:
 			GoPosition();
@@ -101,40 +100,81 @@ $("#play").click(function()
 
 $("#presetButton1").click(function()
 {
-	ReturnPosition();	
+	if(recording)
+	{
+		flagGoRecord = 1;
+		flagBackRecord = 1;
+		matrizBackPositions();
+		recording = false;
+		return;
+	}
+	ReturnPosition();
 	playSwitch = 1;
-	recPreset = 1;
 });
 
 $("#presetButton2").click(function()
 {
+	if(recording)
+	{
+		flagGoRecord = 2;
+		flagBackRecord = 2;
+		matrizBackPositions();
+		recording = false;
+		return;
+	}
 	ReturnPosition2();	
 	playSwitch = 2;
-	recPreset = 2;
 });
-$("#presetBUtton3").click(()=>
+$("#presetButton3").click(()=>
 {
+	if(recording)
+	{
+		flagGoRecord = 3;
+		flagBackRecord = 3;
+		matrizBackPositions();
+		recording = false;
+		return;
+	}
 	playSwitch = 3;
-	recPreset = 3;
 })
-$("#presetBUtton4").click(()=>
+$("#presetButton4").click(()=>
 {
+	if(recording)
+	{
+		flagGoRecord = 4;
+		flagBackRecord = 4;
+		matrizBackPositions();
+		recording = false;
+		return;
+	}
 	playSwitch = 4;
-	recPreset = 4;
 })
-$("#presetBUtton5").click(()=>
+$("#presetButton5").click(()=>
 {
+	if(recording)
+	{
+		flagGoRecord = 5;
+		flagBackRecord = 5;
+		matrizBackPositions();
+		recording = false;
+		return;
+	}
 	playSwitch = 5;
-	recPreset = 5;
 })
-$("#presetBUtton6").click(()=>
+$("#presetButton6").click(()=>
 {
+	if(recording)
+	{
+		flagGoRecord = 6;
+		flagBackRecord = 6;
+		matrizBackPositions();
+		recording = false;
+		return;
+	}
 	playSwitch = 6;
-	recPreset = 6;
 })
 
 $("#rec").click(() =>
 {
-
 	Gravador();
 });

@@ -7,10 +7,14 @@ app.listen(3000, () => console.log("listening at 3000"));
 app.use(express.static('public'));
 app.use(express.json({limit: '1mb'}));
 
-var db = {};
+var db = {}; // Banco de dados.
 
 db.preset1 = new DataStore({filename:'database/preset1.db', autoload: true});
 db.preset2 = new DataStore({filename:'database/preset2.db', autoload: true});
+db.preset3 = new DataStore({filename:'database/preset3.db', autoload: true});
+db.preset4 = new DataStore({filename:'database/preset4.db', autoload: true});
+db.preset5 = new DataStore({filename:'database/preset5.db', autoload: true});
+db.preset6 = new DataStore({filename:'database/preset6.db', autoload: true});
 
 
 app.get('/api', (request, response) =>

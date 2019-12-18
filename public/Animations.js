@@ -1,4 +1,4 @@
-let toggleA = true, toggleB = true;
+let toggleA = true, toggleB = false;
 
 function ReturnPosition()
 {
@@ -40,7 +40,7 @@ function GoPosition()
         .to($("#b9"), 1.5, {left: matrizBGo1[8][0], top: matrizBGo1[8][1]}, "-=1.5")
         .to($("#b10"), 1.5, {left: matrizBGo1[9][0], top: matrizBGo1[9][1]}, "-=1.5")
         .to($("#b11"), 1.5, {left: matrizBGo1[10][0], top: matrizBGo1[10][1]}, "-=1.5")
-// -------------------------------------------------------------------------------------------- //
+// ---------------------------------------------------------------------------------- //
         .to($("#r1"), 1.5, {left: matrizRGo1[0][0], top: matrizRGo1[0][1]}, "-=1.5")
         .to($("#r2"), 1.5, {left: matrizRGo1[1][0], top: matrizRGo1[1][1]}, "-=1.5")
         .to($("#r3"), 1.5, {left: matrizRGo1[2][0], top: matrizRGo1[2][1]}, "-=1.5")
