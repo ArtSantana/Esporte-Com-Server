@@ -1,8 +1,9 @@
 var postData;
-var matrizGO, matrixBack;
+var dataGO, dataBack, presetNumber;
 const data = {
-    dataGO: matrizGO,
-    dataBack: matrizBack,
+    dataGO,
+	dataBack,
+	presetNumber,
 }
 const del = {
     cleanDatabase: true,

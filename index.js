@@ -36,9 +36,4 @@ app.post('/api', (request, reponse) =>
     console.log("Request received");
     db.preset1.insert(request.body);
 
-    response.json(
-    {
-        status: 'success',
-        data: request.body,
-    });
 })

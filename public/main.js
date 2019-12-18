@@ -68,6 +68,37 @@ function Gravador()
 		recFlag = true;
 
 		matrizGoPositions();
+
+		// PARA FAZER O POST NO SERVER	
+		switch(flagGoRecord)
+		{
+			case 1:
+				data.dataGo = matrizBGo1;
+				data.dataBack = matrizBBack1;
+				break;
+			case 2:
+				data.dataGO = matrizBGo2;
+				data.dataBack = matrizBBack2;
+				break;
+			case 3:
+				data.dataGO = matrizBGo3;
+				data.dataBack = matrizBBack3;
+				break;
+			case 4:
+				data.dataGO = matrizBGo4;
+				data.dataBack = matrizBBack4;
+				break;
+			case 5:
+				data.dataGO = matrizBGo5;
+				data.dataBack = matrizBBack5;
+				break;
+			case 6:
+				data.dataGO = matrizBGo6;
+				data.dataBack = matrizBBack6;
+				break;
+		}
+		postData = data;
+		post();
 	}
 	// No REC entra sempre primeiro aqui.
 	else
