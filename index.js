@@ -33,7 +33,11 @@ app.get('/api', (request, response) =>
 
 app.post('/api', (request, reponse) =>
 {
+    const data = {
+        matrizGo: request.body.dataGo,
+        matrizBack: request.body.dataBack,
+    }
     console.log("Request received");
-    db.preset1.insert(request.body);
 
+    db.preset1.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
 })
