@@ -79,7 +79,6 @@ $(document).ready(function()
 
     $("#arrow").click(() => arrowFlag = true);
 
-
     function startArrowTouch(e)
     {
         if(!arrowFlag) return; 

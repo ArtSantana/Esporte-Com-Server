@@ -58,6 +58,12 @@ for(i=1; i<12; i++)
 	$("#r"+i).draggable();    
 }
 
+$("#deleteButton").click(() =>
+{
+	postData = del;
+	post()
+})
+
 function Gravador()
 {
 	if(recFlag == false) // BOTAO STOP
