@@ -9,23 +9,11 @@ app.use(express.json({limit: '1mb'}));
 
 var db = {}; // Banco de dados.
 
-db.preset1 = new DataStore({filename:'database/preset1.db', autoload: true});
-db.preset2 = new DataStore({filename:'database/preset2.db', autoload: true});
-db.preset3 = new DataStore({filename:'database/preset3.db', autoload: true});
-db.preset4 = new DataStore({filename:'database/preset4.db', autoload: true});
-db.preset5 = new DataStore({filename:'database/preset5.db', autoload: true});
-db.preset6 = new DataStore({filename:'database/preset6.db', autoload: true});
-
-db.preset1.insert({jabiru: 5});
-db.preset2.insert({jabiru: 5});
-db.preset3.insert({jabiru: 5});
-db.preset4.insert({jabiru: 5});
-db.preset5.insert({jabiru: 5});
-db.preset6.insert({jabiru: 5});
+db = new DataStore({filename:'database/preset.db', autoload: true});
 
 app.get('/api', (request, response) =>
 {
-    database.find({}, (err, data) =>
+    db.find({}, (err, data) =>
     {
         if(err)
         {
@@ -40,7 +28,7 @@ app.get('/api', (request, response) =>
 app.post('/api', (request, reponse) =>
 {
     const data = {
-        matrizGo: request.body.dataGo,
+        matrizGo: request.body.dataGO,
         matrizBack: request.body.dataBack,
     }
     console.log("Request received");
@@ -52,39 +40,37 @@ app.post('/api', (request, reponse) =>
     switch(request.body.presetNumber)
     {
         case 1:
-            db.preset1.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
+            db.update({preset:1}, {preset: 1,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
             break;
         case 2:
-            db.preset2.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
+            db.update({preset:2}, {preset: 2,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
             break;
         case 3:
-            db.preset3.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
+            db.update({preset:3}, {preset: 3,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
             break;
         case 4:
-            db.preset4.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
+            db.update({preset:4}, {preset: 4,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
             break;
         case 5:
-            db.preset5.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
+            db.update({preset:5}, {preset: 5,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
             break;
         case 6:
-            db.preset6.insert({matrizGo: data.matrizGo, matrizBack: data.matrizBack});
+            db.update({preset:6}, {preset: 6,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
             break;
     }
+    db.loadDatabase();
 
+//    db.loadDatabase();
 // Alterar para somente um arquivo.
     if(request.body.cleanDatabase)
     {
-       db.preset1.remove({}, {multi: true});
-       db.preset2.remove({}, {multi: true});
-       db.preset3.remove({}, {multi: true});
-       db.preset4.remove({}, {multi: true});
-       db.preset5.remove({}, {multi: true});
-       db.preset6.remove({}, {multi: true});
-       db.preset1.loadDatabase();
-       db.preset2.loadDatabase();
-       db.preset3.loadDatabase();
-       db.preset4.loadDatabase();
-       db.preset5.loadDatabase();
-       db.preset6.loadDatabase();
+       db.remove({}, {multi: true});
+       db.loadDatabase();
+       db.insert({preset: 1, matrizGo: 0, matrizBack: 0});
+       db.insert({preset: 2, matrizGo: 0, matrizBack: 0});
+       db.insert({preset: 3, matrizGo: 0, matrizBack: 0});
+       db.insert({preset: 4, matrizGo: 0, matrizBack: 0});
+       db.insert({preset: 5, matrizGo: 0, matrizBack: 0});
+       db.insert({preset: 6, matrizGo: 0, matrizBack: 0});
     }
 })

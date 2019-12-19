@@ -74,7 +74,7 @@ function Gravador()
 		switch(flagGoRecord)
 		{
 			case 1:
-				data.dataGo = matrizBGo1;
+				data.dataGO = matrizBGo1;
 				data.dataBack = matrizBBack1;
 				data.presetNumber = 1;
 				break;
