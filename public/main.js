@@ -64,6 +64,18 @@ $("#deleteButton").click(() =>
 	post()
 })
 
+
+const dbInformation = getData();
+let matrizes = [];
+
+Promise.resolve(dbInformation).then(data =>
+{
+	for(i=0; i<6; i++)
+	{
+		matrizes[i] = data[i];
+	}
+})
+
 function Gravador()
 {
 	if(recFlag == false) // BOTAO STOP

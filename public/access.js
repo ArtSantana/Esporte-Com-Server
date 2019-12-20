@@ -10,7 +10,7 @@ const del = {
 }
 
 async function post()
-{    
+{
 	options = {
 		method: 'POST',
 		headers:{
@@ -26,7 +26,7 @@ async function post()
 async function getData()
 {
     const response = await fetch('/api');
-    const dataReceived = await response.json();
+	const dataReceived = await response.json()
     
     return dataReceived;
 }

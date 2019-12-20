@@ -20,7 +20,7 @@ app.get('/api', (request, response) =>
             response.end();
             return;
         }
-
+        console.log(data);
         response.json(data);
     })
 })
@@ -35,7 +35,7 @@ app.post('/api', (request, reponse) =>
     console.log(request.body);
 
 // Usar para o update em apenas um arquivo
-//  db.update({presetNumber: 1}, matrizGo: data.matrizGo, matrizGo: data.matrizBack);
+//  db.update({presetNumber: 1}, matrizGo: data.matrizGo, matrizGo: data.matrizBack);   
 
     switch(request.body.presetNumber)
     {
