@@ -2,7 +2,7 @@ html
 {
     touch-action: none;
     user-select: none;
-    background-image: url(background.png);
+    background-image: url(campex.png);
 }
 
 .grid
@@ -52,7 +52,7 @@ html
 
 #bnt
 {    
-    margin-top: 300px;
+    margin-top: 100px;
     grid-column-start: 4;
     grid-row-start: 1;        
 
@@ -64,7 +64,7 @@ html
 
 #presetButtons
 {    
-    margin-top: 300px;
+    margin-top: 100px;
     margin-right: 10px;
     grid-column-start: 3;
     grid-row-start: 1;        
