@@ -3,6 +3,7 @@ html
     touch-action: none;
     user-select: none;
     background-image: url(campex.png);
+    scrollbar-width: none;
 }
 
 .grid
