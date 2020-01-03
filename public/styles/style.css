@@ -57,7 +57,7 @@ html
 
 #bnt
 {    
-    margin-top: 100px;
+    margin-top: 5vw;
     grid-column-start: 4;
     grid-row-start: 1;        
 
@@ -69,7 +69,7 @@ html
 
 #presetButtons
 {    
-    margin-top: 100px;
+    margin-top: 5vw;
     margin-right: 10px;
     grid-column-start: 3;
     grid-row-start: 1;        
