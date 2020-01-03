@@ -4,6 +4,10 @@ html
     user-select: none;
     background-image: url(campex.png);
     scrollbar-width: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .grid
