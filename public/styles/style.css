@@ -30,13 +30,6 @@ html
     grid-row-start: 1;
 }
 
-#campo
-{
-    width: 1600px;
-    height: 850px;
-    object-fit: fill;
-}
-
 .ImgJogadores
 {
     max-width: 5vw;
