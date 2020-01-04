@@ -19,6 +19,23 @@ html
 
     z-index: 1;
 }
+#frame
+{
+    margin-top: 1%;
+    height: 850px;
+    width: 1600px;    
+        
+    margin-left: 2%;    
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+#campo
+{
+    width: 1600px;
+    height: 850px;
+    object-fit: fill;
+}
 
 .Jogadores
 {
