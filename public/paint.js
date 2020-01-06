@@ -1,10 +1,16 @@
 $(document).ready(function()
 {
     var bntStartPaint = $("#startPaint");
-    var canvas = $("#cv")[0];
-    var ctx = canvas.getContext("2d");
+    const canvas = $("#cv")[0];
+    const ctx = canvas.getContext("2d");
     var paint = false, enablePaintFunction = false, arrowFlag = false;
     var startX, startY, endX, endY;
+    
+    const fixerHorizontalDraw = screen.width * 90 / 1366
+    const fixerVerticalDraw = screen.height * 25 / 768
+
+    ctx.canvas.height = screen.height * 77.5 / 100 
+    ctx.canvas.width = screen.width * 72.5 / 100
     ctx.strokeStyle = "red";
 
     function startPaint()
@@ -29,10 +35,10 @@ $(document).ready(function()
         ctx.lineWidth = 10;
         ctx.lineCap = "round";
 
-        ctx.lineTo(e.touches[0].pageX - 33, e.touches[0].pageY - 25);
+        ctx.lineTo(e.touches[0].pageX - fixerHorizontalDraw, e.touches[0].pageY - fixerVerticalDraw);
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(e.touches[0].pageX - 33, e.touches[0].pageY - 25);
+        ctx.moveTo(e.touches[0].pageX - fixerHorizontalDraw, e.touches[0].pageY - fixerVerticalDraw);
     }
 	
 	function drawMouse(e)
@@ -44,10 +50,10 @@ $(document).ready(function()
 
         ctx.lineWidth = 7;
         ctx.lineCap = "round";
-        ctx.lineTo(e.pageX - 33, e.pageY - 25);
+        ctx.lineTo(e.pageX - fixerHorizontalDraw, e.pageY - fixerVerticalDraw);
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(e.pageX - 33, e.pageY - 25);
+        ctx.moveTo(e.pageX - fixerHorizontalDraw, e.pageY - fixerVerticalDraw);
     }
 
     $("#clearCanvas").click(function()
