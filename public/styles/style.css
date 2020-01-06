@@ -14,9 +14,8 @@ html
 {
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 0.12fr 0.12fr;
-
+    grid-template-columns: 80vw 7.5vw 6vw 6vw;
+    grid-template-rows: 81vh 9vh 10vh;
     z-index: 1;
 }
 #frame
@@ -81,9 +80,20 @@ html
 #cv
 {
     position: absolute;
-    margin-top: 1%;
-    margin-left: 1.6%;
+    margin-top: 3.7vh;
+    margin-left: 7vw;
+
     z-index: 2;
+}
+
+#bnt img 
+{
+    max-width: 6vw;
+}
+
+#presetButtons img
+{
+    max-width: 6vw;
 }
 
 .myButton {
