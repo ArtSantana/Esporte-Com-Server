@@ -8,6 +8,9 @@ $(document).ready(function()
     
     const fixerHorizontalDraw = screen.width * 90 / 1366
     const fixerVerticalDraw = screen.height * 25 / 768
+    
+    const fixerHorizontalArrow = screen.width * 125 / 1920
+    const fixerVerticalArrow = screen.height * 30 / 1080;
 
     ctx.canvas.height = screen.height * 77.5 / 100 
     ctx.canvas.width = screen.width * 72.5 / 100
@@ -123,7 +126,7 @@ $(document).ready(function()
         endY = e.pageY;
 
         ctx.beginPath()
-        drawArrow(startX, startY, endX, endY);
+        drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
         ctx.stroke();
     }
 
