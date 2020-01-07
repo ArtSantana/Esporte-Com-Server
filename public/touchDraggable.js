@@ -52,7 +52,7 @@ $(document).ready(function()
     b5.addEventListener('touchmove', function(e)
     {
         $("#b5")[0].style.top = e.touches[0].pageY - 905 + "px";
-        $("#b5")[0].style.left = e.touches[0].pageX - 355 - 135 + "px";
+        $("#b5")[0].style.left = e.touches[0].pageX - 475 + "px";
     })
     b6.addEventListener('touchmove', function(e)
     {
@@ -62,7 +62,7 @@ $(document).ready(function()
     b7.addEventListener('touchmove', function(e)
     {
         $("#b7")[0].style.top = e.touches[0].pageY - 905 + "px";
-        $("#b7")[0].style.left = e.touches[0].pageX - 515 - 175 + "px";
+        $("#b7")[0].style.left = e.touches[0].pageX - 650 + "px";
     })
     b8.addEventListener('touchmove', function(e)
     {
