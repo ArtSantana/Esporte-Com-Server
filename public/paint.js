@@ -12,6 +12,8 @@ $(document).ready(function()
     const fixerHorizontalArrow = screen.width * 125 / 1920
     const fixerVerticalArrow = screen.height * 30 / 1080;
 
+    var arrowDraw = false;
+
     ctx.canvas.height = screen.height * 77.5 / 100 
     ctx.canvas.width = screen.width * 72.5 / 100
     ctx.strokeStyle = "red";
@@ -81,7 +83,7 @@ $(document).ready(function()
     canvas.addEventListener('mouseup', stopPaint);
     
     canvas.addEventListener('touchstart', startArrowTouch);
-    canvas.addEventListener('touchend', endArrowTouch);    
+    //canvas.addEventListener('touchend', endArrowTouch);    
 	
     canvas.addEventListener('mousedown', startArrow);
     canvas.addEventListener('mouseup', endArrow);
@@ -92,21 +94,29 @@ $(document).ready(function()
     {
         if(!arrowFlag) return; 
 
-        enablePaintFunction = false;
-        startX = e.touches[0].pageX;
-        startY = e.touches[0].pageY;
+        
+        if(!arrowDraw)
+        {
+            arrowDraw = true;
+            enablePaintFunction = false;
+            startX = e.touches[0].pageX;
+            startY = e.touches[0].pageY;
+        } 
+        else
+        {
+            if(!arrowFlag) return; 
+        
+            endX = e.touches[0].pageX;
+            endY = e.touches[0].pageY;
+        
+            ctx.beginPath()
+            drawArrow(startX, startY, endX, endY);
+            ctx.stroke();
+        }
     }
 
     function endArrowTouch(e)
     {
-        if(!arrowFlag) return; 
-
-        endX = e.touches[0].pageX;
-        endY = e.touches[0].pageY;
-
-        ctx.beginPath()
-        drawArrow(startX, startY, endX, endY);
-        ctx.stroke();
     }
 
     function startArrow(e)
