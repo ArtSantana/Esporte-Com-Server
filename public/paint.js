@@ -83,7 +83,6 @@ $(document).ready(function()
     canvas.addEventListener('mouseup', stopPaint);
     
     canvas.addEventListener('touchstart', startArrowTouch);
-    //canvas.addEventListener('touchend', endArrowTouch);    
 	
     canvas.addEventListener('mousedown', startArrow);
     canvas.addEventListener('mouseup', endArrow);
@@ -94,31 +93,29 @@ $(document).ready(function()
     {
         if(!arrowFlag) return; 
 
-        
-        if(!arrowDraw)
-        {
-            arrowDraw = true;
-            enablePaintFunction = false;
-            startX = e.touches[0].pageX;
-            startY = e.touches[0].pageY;
-        } 
-        else
-        {
-            if(!arrowFlag) return; 
-        
-            endX = e.touches[0].pageX;
-            endY = e.touches[0].pageY;
-        
-            ctx.beginPath()
-            drawArrow(startX, startY, endX, endY);
-            ctx.stroke();
-        }
-    }
+        enablePaintFunction = false;
 
-    function endArrowTouch(e)
-    {
+		
+		if(!arrowDraw)
+		{
+			arrowDraw = true;
+			startX = e.touches[0].pageX;
+			startY = e.touches[0].pageY;
+		}
+		else
+		{
+			arrowDraw = false;
+			
+			endX = e.touches[0].pageX;
+			endY = e.touches[0].pageY;
+			
+			ctx.beginPath()
+			drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
+			ctx.stroke();
+		}
+		
     }
-
+	
     function startArrow(e)
     {
         if(!arrowFlag) return; 
