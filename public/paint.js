@@ -109,6 +109,7 @@ $(document).ready(function()
 			endX = e.touches[0].pageX;
 			endY = e.touches[0].pageY;
 			
+			if(startX == endX && startY == endY) return ;
 			ctx.beginPath()
 			drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
 			ctx.stroke();
@@ -131,10 +132,12 @@ $(document).ready(function()
 
         endX = e.pageX;
         endY = e.pageY;
-
+		
+		if(startX == endX && startY == endY) return ;
         ctx.beginPath()
         drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
         ctx.stroke();
+		console.log('Conjunto de X', startX, endX, '\nConjunto de Y', startY, endY)
     }
 
 
