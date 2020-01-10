@@ -54,11 +54,13 @@ $(document).ready(function()
         $("#b5")[0].style.top = e.touches[0].pageY - 905 + "px";
         $("#b5")[0].style.left = e.touches[0].pageX - 475 + "px";
     })
-    b6.addEventListener('touchmove', function(e)
-    {
-        $("#b6")[0].style.top = e.touches[0].pageY - 905 + "px";
-        $("#b6")[0].style.left = e.touches[0].pageX - 515 - "px";
-    })
+
+	b6.addEventListener('touchmove', (e) =>
+	{
+		b6.style.top = e.touches[0].pageY - 905 + "px";
+        b6.style.left = e.touches[0].pageX - 540 + "px";
+	})
+
     b7.addEventListener('touchmove', function(e)
     {
         $("#b7")[0].style.top = e.touches[0].pageY - 905 + "px";
@@ -89,58 +91,58 @@ $(document).ready(function()
     //
     r1.addEventListener('touchmove', function(e)
     {
-        $("#r1")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r1")[0].style.left = e.touches[0].pageX - 50 + "px";
+        $("#r1")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r1")[0].style.left = e.touches[0].pageX - 75 + "px";
     })
     r2.addEventListener('touchmove', function(e)
     {
-        $("#r2")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r2")[0].style.left = e.touches[0].pageX - 135 + "px";
+        $("#r2")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r2")[0].style.left = e.touches[0].pageX - 150 + "px";
     })
     r3.addEventListener('touchmove', function(e)
     {
-        $("#r3")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r3")[0].style.left = e.touches[0].pageX - 220 + "px";
+        $("#r3")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r3")[0].style.left = e.touches[0].pageX - 240 + "px";
     })
     r4.addEventListener('touchmove', function(e)
     {
-        $("#r4")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r4")[0].style.left = e.touches[0].pageX - 305 + "px";
+        $("#r4")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r4")[0].style.left = e.touches[0].pageX - 355 + "px";
     })
     r5.addEventListener('touchmove', function(e)
     {
-        $("#r5")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r5")[0].style.left = e.touches[0].pageX - 390 + "px";
+        $("#r5")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r5")[0].style.left = e.touches[0].pageX - 475 + "px";
     })
     r6.addEventListener('touchmove', function(e)
     {
-        $("#r6")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r6")[0].style.left = e.touches[0].pageX - 475 + "px";
+        $("#r6")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r6")[0].style.left = e.touches[0].pageX - 540 + "px";
     })
     r7.addEventListener('touchmove', function(e)
     {
-        $("#r7")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r7")[0].style.left = e.touches[0].pageX - 560 + "px";
+        $("#r7")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r7")[0].style.left = e.touches[0].pageX - 650 + "px";
     })
     r8.addEventListener('touchmove', function(e)
     {
-        $("#r8")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r8")[0].style.left = e.touches[0].pageX - 645 + "px";
+        $("#r8")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r8")[0].style.left = e.touches[0].pageX - 745 + "px";
     })
     r9.addEventListener('touchmove', function(e)
     {
-        $("#r9")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r9")[0].style.left = e.touches[0].pageX - 725 + "px";
+        $("#r9")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r9")[0].style.left = e.touches[0].pageX - 870 + "px";
     })
     r10.addEventListener('touchmove', function(e)
     {
-        $("#r10")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r10")[0].style.left = e.touches[0].pageX - 810 + "px";
+        $("#r10")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r10")[0].style.left = e.touches[0].pageX - 960 + "px";
     })
     r11.addEventListener('touchmove', function(e)
     {
-        $("#r11")[0].style.top = e.touches[0].pageY - 985 + "px";
-        $("#r11")[0].style.left = e.touches[0].pageX - 895 + "px";
+        $("#r11")[0].style.top = e.touches[0].pageY - 995 + "px";
+        $("#r11")[0].style.left = e.touches[0].pageX - 1060 + "px";
     })
 
 })
