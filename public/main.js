@@ -9,36 +9,6 @@ var matrizBBack1 = [], matrizBBack2 = [], matrizBGo1 = [], matrizBGo2 = []
 //////////////
 var recFlag = null, flagBackRecord = 1, recording = false;
 
-
-for(i = 0; i<11; i++)
-{
-	matrizBBack1[i] = [];
-	matrizBBack2[i] = [];
-	matrizBBack3[i] = [];
-	matrizBBack4[i] = [];
-	matrizBBack5[i] = [];
-	matrizBBack6[i] = [];
-	matrizBGo1[i] = [];
-	matrizBGo2[i] = [];
-	matrizBGo3[i] = [];
-	matrizBGo4[i] = [];
-	matrizBGo5[i] = [];
-	matrizBGo6[i] = [];
-
-	matrizRBack1[i] = [];
-	matrizRBack2[i] = [];
-	matrizRBack3[i] = [];
-	matrizRBack4[i] = [];
-	matrizRBack5[i] = [];
-	matrizRBack6[i] = [];
-	matrizRGo1[i] = [];
-	matrizRGo2[i] = [];
-	matrizRGo3[i] = [];
-	matrizRGo4[i] = [];
-	matrizRGo5[i] = [];
-	matrizRGo6[i] = [];
-
-}
 /*
 As variáveis back são responsáveis por fazer animação dos jogadores voltando a suas posições inicias,
 que precedem a animação. Portanto, as variáveis go determinam a posição final da animação.
@@ -49,10 +19,6 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 for(i=1; i<12; i++)
 {	
 	$("#b"+i).draggable();
-}
-
-for(i=1; i<12; i++)
-{
 	$("#r"+i).draggable();    
 }
 
@@ -180,14 +146,20 @@ $("#play").click(function()
 	}
 });
 
+function handlePresetClick(n)
+{
+	alert('Você está gravando no preset ' + n)
+	flagGoRecord = n;
+	flagBackRecord = n;
+	matrizBackPositions();
+	recording = false;
+}
+
 $("#presetButton1").click(function()
 {
 	if(recording)
 	{
-		flagGoRecord = 1;
-		flagBackRecord = 1;
-		matrizBackPositions();
-		recording = false;
+		handlePresetClick(1);
 		return;
 	}
 	ReturnPosition();
@@ -198,10 +170,7 @@ $("#presetButton2").click(function()
 {
 	if(recording)
 	{
-		flagGoRecord = 2;
-		flagBackRecord = 2;
-		matrizBackPositions();
-		recording = false;
+		handlePresetClick(2);
 		return;
 	}
 	ReturnPosition2();	
@@ -211,10 +180,7 @@ $("#presetButton3").click(()=>
 {
 	if(recording)
 	{
-		flagGoRecord = 3;
-		flagBackRecord = 3;
-		matrizBackPositions();
-		recording = false;
+		handlePresetClick(3);
 		return;
 	}
 	ReturnPosition3();
@@ -224,10 +190,7 @@ $("#presetButton4").click(()=>
 {
 	if(recording)
 	{
-		flagGoRecord = 4;
-		flagBackRecord = 4;
-		matrizBackPositions();
-		recording = false;
+		handlePresetClick(4);
 		return;
 	}
 	ReturnPosition4();
@@ -237,10 +200,7 @@ $("#presetButton5").click(()=>
 {
 	if(recording)
 	{
-		flagGoRecord = 5;
-		flagBackRecord = 5;
-		matrizBackPositions();
-		recording = false;
+		handlePresetClick(5);
 		return;
 	}
 	ReturnPosition5();
@@ -250,10 +210,7 @@ $("#presetButton6").click(()=>
 {
 	if(recording)
 	{
-		flagGoRecord = 6;
-		flagBackRecord = 6;
-		matrizBackPositions();
-		recording = false;
+		handlePresetClick(6);
 		return;
 	}
 	ReturnPosition6();

@@ -1,6 +1,5 @@
 function matrizBackPositions()
 {
-    $("#rec").text("Stop");
     for(i=0; i<11; i++)
     {
         for(j=0; j<2; j++)
@@ -91,7 +90,6 @@ function matrizBackPositions()
 
 function matrizGoPositions()
 {
-    $("#rec").text("REC");
     for(i=0; i<11; i++)
     {
         for(j=0; j<2; j++)
