@@ -9,6 +9,21 @@ app.use(express.json({limit: '1mb'}));
 
 var db = []; // Banco de dados.
 
+var baseMatrizes = [];
+
+for(let i=0; i<11; i++)
+{
+    baseMatrizes[i] = [];
+}
+
+for(let i=0; i<11; i++)
+{
+    for(let j=0; j<2; j++)
+    {
+        baseMatrizes[i][j] = "0px";
+    }
+} 
+
 db.londrina = new DataStore({filename:'database/LDApreset.db', autoload: true});
 db.maringa = new DataStore({filename:'database/MRGpreset.db', autoload: true});
 db.noroeste = new DataStore({filename:'database/NORpreset.db', autoload: true});
@@ -70,13 +85,14 @@ app.post('/api', (request, reponse) =>
 // Alterar para somente um arquivo.
     if(request.body.cleanDatabase)
     {
-       db.londrina.remove({}, {multi: true});
-       db.londrina.loadDatabase();
-       db.londrina.insert({preset: 1, matrizGo: 0, matrizBack: 0});
-       db.londrina.insert({preset: 2, matrizGo: 0, matrizBack: 0});
-       db.londrina.insert({preset: 3, matrizGo: 0, matrizBack: 0});
-       db.londrina.insert({preset: 4, matrizGo: 0, matrizBack: 0});
-       db.londrina.insert({preset: 5, matrizGo: 0, matrizBack: 0});
-       db.londrina.insert({preset: 6, matrizGo: 0, matrizBack: 0});
+        console.log(baseMatrizes)
+        db.londrina.remove({}, {multi: true});
+        db.londrina.loadDatabase();
+        db.londrina.insert({preset: 1, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
+        db.londrina.insert({preset: 2, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
+        db.londrina.insert({preset: 3, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
+        db.londrina.insert({preset: 4, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
+        db.londrina.insert({preset: 5, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
+        db.londrina.insert({preset: 6, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
     }
 })
