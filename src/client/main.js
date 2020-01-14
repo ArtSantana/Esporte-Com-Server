@@ -1,12 +1,4 @@
 let playSwitch = 0;
-let matrizBBack1 = [], matrizBBack2 = [], matrizBGo1 = [], matrizBGo2 = []
-	, matrizBBack3 = [], matrizBBack4 = [], matrizBBack5 = [], matrizBBack6 = []
-	, matrizBGo3 = [], matrizBGo4 = [], matrizBGo5 = [], matrizBGo6 = []
-	, matrizRBack3 = [], matrizRBack4 = [], matrizRBack5 = [], matrizRBack6 = []
-	, matrizRGo3 = [], matrizRGo4 = [], matrizRGo5 = [], matrizRGo6 = []
-	, matrizRBack1 = [], matrizRBack2 = [], matrizRGo1 = [], matrizRGo2 = [];
-
-//////////////
 let recFlag = null;
 let flagBackRecord = 1;
 let recording = false;
@@ -27,7 +19,7 @@ for(i=1; i<12; i++)
 $("#deleteButton").click(() =>
 {
 	postData = del;
-	post()
+	postDeletePresets();
 })
 
 // Aqui deverá haver uma const que receberá uma response
@@ -36,38 +28,11 @@ $("#deleteButton").click(() =>
 // do seu respectivo banco de dados
 
 const dbInformation = getData();
-let matrizes = [];
+let matrizes;
 
-Promise.resolve(dbInformation).then(data =>
+Promise.resolve(dbInformation).then(dataReceived =>
 {
-	for(i=0; i<6; i++)
-	{
-		matrizes[i] = data[i];
-	}
-	matrizRGo1 = matrizes[0].matrizGo;
-	matrizRGo2 = matrizes[1].matrizGo;
-	matrizRGo3 = matrizes[2].matrizGo;
-	matrizRGo4 = matrizes[3].matrizGo;
-	matrizRGo5 = matrizes[4].matrizGo;
-	matrizRGo6 = matrizes[5].matrizGo;
-	matrizRBack1 = matrizes[0].matrizBack;
-	matrizRBack2 = matrizes[1].matrizBack;
-	matrizRBack3 = matrizes[2].matrizBack;
-	matrizRBack4 = matrizes[3].matrizBack;
-	matrizRBack5 = matrizes[4].matrizBack;
-	matrizRBack6 = matrizes[5].matrizBack;
-	matrizBGo1 = matrizes[0].matrizGo;
-	matrizBGo2 = matrizes[1].matrizGo;
-	matrizBGo3 = matrizes[2].matrizGo;
-	matrizBGo4 = matrizes[3].matrizGo;
-	matrizBGo5 = matrizes[4].matrizGo;
-	matrizBGo6 = matrizes[5].matrizGo;
-	matrizBBack1 = matrizes[0].matrizBack;
-	matrizBBack2 = matrizes[1].matrizBack;
-	matrizBBack3 = matrizes[2].matrizBack;
-	matrizBBack4 = matrizes[3].matrizBack;
-	matrizBBack5 = matrizes[4].matrizBack;
-	matrizBBack6 = matrizes[5].matrizBack;
+	matrizes = dataReceived;
 })
 
 function Gravador()
@@ -76,43 +41,37 @@ function Gravador()
 	{
 		recFlag = true;
 		matrizGoPositions();
-		// PARA FAZER O POST NO SERVER	
 		switch(flagGoRecord)
 		{
 			case 1:
-				data.dataGO = matrizBGo1;
-				data.dataBack = matrizBBack1;
+				data.positions = matrizes[0].presetPositions;
 				data.presetNumber = 1;
 				break;
 			case 2:
-				data.dataGO = matrizBGo2;
-				data.dataBack = matrizBBack2;
+				data.positions = matrizes[1].presetPositions;
 				data.presetNumber = 2;
 				break;
 			case 3:
-				data.dataGO = matrizBGo3;
-				data.dataBack = matrizBBack3;
+				data.positions = matrizes[2].presetPositions;
 				data.presetNumber = 3;
 				break;
 			case 4:
-				data.dataGO = matrizBGo4;
-				data.dataBack = matrizBBack4;
+				data.positions = matrizes[3].presetPositions;
 				data.presetNumber = 4;
 				break;
 			case 5:
-				data.dataGO = matrizBGo5;
-				data.dataBack = matrizBBack5;
+				data.positions = matrizes[4].presetPositions;
 				data.presetNumber = 5;
 				break;
 			case 6:
-				data.dataGO = matrizBGo6;
-				data.dataBack = matrizBBack6;
+				data.positions = matrizes[5].presetPositions;
 				data.presetNumber = 6;
 				break;
 		}
 		console.log(data);
 		postData = data;
-		post();
+		postPreset();
+		alert('PRESET SALVO')
 	}
 	else
 	{

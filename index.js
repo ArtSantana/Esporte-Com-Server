@@ -1,19 +1,16 @@
 const express = require('express');
 const app = express();
-
 const DataStore = require('nedb');
 
-app.listen(3000, () => console.log("listening at 3000"));
+app.listen(3000, () => console.log("The application is running at port 3000"));
 app.use(express.static('./src/client'));
 app.use(express.json({limit: '1mb'}));
-
-let db = []; // Banco de dados.
-
+// Banco de dados.
+let db = [];
 let baseMatrizes = [];
 
-for(let i=0; i<11; i++)
-{
-    baseMatrizes[i] = [];
+for(let i=0; i<11; i++){
+     baseMatrizes[i] = [];
 }
 
 for(let i=0; i<11; i++)
@@ -22,7 +19,15 @@ for(let i=0; i<11; i++)
     {
         baseMatrizes[i][j] = "0px";
     }
-} 
+}
+
+
+const presetBase = {
+    matrixGoTeamA: baseMatrizes,
+    matrixGoTeamB: baseMatrizes,
+    matrixBackTeamA: baseMatrizes,
+    matrixBackTeamB: baseMatrizes,
+}
 
 db.londrina = new DataStore({filename:'./src/server/database/LDApreset.db', autoload: true});
 db.maringa = new DataStore({filename:'./src/server/database/MRGpreset.db', autoload: true});
@@ -33,12 +38,9 @@ db.cascavel = new DataStore({filename:'./src/server/database/CVLpreset.db', auto
 db.pontagrossa = new DataStore({filename:'./src/server/database/PTGpreset.db', autoload: true});
 db.curitiba = new DataStore({filename:'./src/server/database/CTApreset.db', autoload: true});
 
-app.get('/api', (request, response) =>
-{
-    db.londrina.find({}, (err, data) =>
-    {
-        if(err)
-        {
+app.get('/api', (request, response) =>{
+    db.londrina.find({}, (err, data) =>{
+        if(err){
             response.end();
             return;
         }
@@ -48,51 +50,25 @@ app.get('/api', (request, response) =>
     })
 })
 
-app.post('/api', (request, reponse) =>
-{
-    const data = {
-        matrizGo: request.body.dataGO,
-        matrizBack: request.body.dataBack,
-    }
+app.post('/api/presets', (request, reponse) =>{
+    const data = request.body;
+    const presetNumber = request.body.presetNumber;
     console.log("Request received");
     console.log(request.body);
 
+    console.log(data);
+    // Update do banco de dados baseado no preset escolhido na hora da gravação feita pelo front-end
+    db.londrina.update({preset: presetNumber}, {preset: presetNumber, presetPositions: data.positions});
+    db.londrina.loadDatabase(); /* É necessário dar load no banco para atualizar o registro */
+})
 
-    switch(request.body.presetNumber)
-    {
-        case 1:
-            db.londrina.update({preset:1}, {preset: 1,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
-            break;
-        case 2:
-            db.londrina.update({preset:2}, {preset: 2,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
-            break;
-        case 3:
-            db.londrina.update({preset:3}, {preset: 3,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
-            break;
-        case 4:
-            db.londrina.update({preset:4}, {preset: 4,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
-            break;
-        case 5:
-            db.londrina.update({preset:5}, {preset: 5,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
-            break;
-        case 6:
-            db.londrina.update({preset:6}, {preset: 6,matrizGo: data.matrizGo, matrizBack: data.matrizBack})
-            break;
-    }
+app.post('/api/delete', (request, response) =>{
+    db.londrina.remove({}, {multi: true});
     db.londrina.loadDatabase();
-
-//    db.loadDatabase();
-// Alterar para somente um arquivo.
-    if(request.body.cleanDatabase)
-    {
-        console.log(baseMatrizes)
-        db.londrina.remove({}, {multi: true});
-        db.londrina.loadDatabase();
-        db.londrina.insert({preset: 1, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
-        db.londrina.insert({preset: 2, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
-        db.londrina.insert({preset: 3, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
-        db.londrina.insert({preset: 4, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
-        db.londrina.insert({preset: 5, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
-        db.londrina.insert({preset: 6, matrizGo: baseMatrizes, matrizBack: baseMatrizes});
-    }
+    db.londrina.insert({preset: 1, presetPositions: presetBase});
+    db.londrina.insert({preset: 2, presetPositions: presetBase});
+    db.londrina.insert({preset: 3, presetPositions: presetBase});
+    db.londrina.insert({preset: 4, presetPositions: presetBase});
+    db.londrina.insert({preset: 5, presetPositions: presetBase});
+    db.londrina.insert({preset: 6, presetPositions: presetBase});
 })

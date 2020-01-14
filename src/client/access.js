@@ -1,30 +1,42 @@
 var postData;
-var dataGO, dataBack, presetNumber;
-const data = {
-    dataGO,
-	dataBack,
-	presetNumber,
+let data = {
+	presetNumber: 0,
+	positions: {
+		matrixGoTeamA: [],
+		matrixGoTeamB: [],
+		matrixBackTeamA: [],
+		matrixBackTeamB: [],
+	}
 }
 const del = {
-    cleanDatabase: true,
+    cleanDatabase: true
 }
 
-async function post()
-{
-	options = {
+async function postPreset(){
+	postOptions = {
 		method: 'POST',
-		headers:{
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	}
+	const response = await fetch('/api/presets', postOptions);
+	const json = await response.json();
+}
+
+async function postDeletePresets(){
+	postOptions = {
+		method: 'POST',
+		headers: {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(postData)
 	}
-
-	const response = await fetch('/api', options);
+	const response = await fetch('/api/delete', postOptions);
 	const json = await response.json();
 }
 
-async function getData()
-{
+async function getData(){
     const response = await fetch('/api');
 	const dataReceived = await response.json()
     
