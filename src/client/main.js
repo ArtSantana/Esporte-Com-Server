@@ -28,11 +28,31 @@ $("#deleteButton").click(() =>
 // do seu respectivo banco de dados
 
 const dbInformation = getData();
-let matrizes;
+let matrizes = new Array();
 
-Promise.resolve(dbInformation).then(dataReceived =>
-{
-	matrizes = dataReceived;
+Promise.resolve(dbInformation).then(dataReceived =>{
+	for(let i=0; i<6; i++){
+		switch(dataReceived[i].preset){
+			case 1:
+				matrizes[0] = dataReceived[i];
+				break;
+			case 2:
+				matrizes[1] = dataReceived[i];
+				break;
+			case 3:
+				matrizes[2] = dataReceived[i];
+				break;
+			case 4:
+				matrizes[3] = dataReceived[i];
+				break;
+			case 5:
+				matrizes[4] = dataReceived[i];
+				break;
+			case 6:
+				matrizes[5] = dataReceived[i];
+				break;
+		}
+	}
 })
 
 function Gravador()
