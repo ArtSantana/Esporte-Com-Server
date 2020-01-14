@@ -23,7 +23,6 @@ function matrizBackPositions()
                     {
                         matrizBBack2[i][j] = $("#b"+(i+1))[0].style.left;
                         matrizRBack2[i][j] = $("#r"+(i+1))[0].style.left;
-    
                     } 
                     else if(j == 1)
                     {
@@ -36,7 +35,6 @@ function matrizBackPositions()
                     {
                         matrizBBack3[i][j] = $("#b"+(i+1))[0].style.left;
                         matrizRBack3[i][j] = $("#r"+(i+1))[0].style.left;
-    
                     } 
                     else if(j == 1)
                     {
@@ -49,7 +47,6 @@ function matrizBackPositions()
                     {
                         matrizBBack4[i][j] = $("#b"+(i+1))[0].style.left;
                         matrizRBack4[i][j] = $("#r"+(i+1))[0].style.left;
-    
                     } 
                     else if(j == 1)
                     {
@@ -62,7 +59,6 @@ function matrizBackPositions()
                     {
                         matrizBBack5[i][j] = $("#b"+(i+1))[0].style.left;
                         matrizRBack5[i][j] = $("#r"+(i+1))[0].style.left;
-    
                     } 
                     else if(j == 1)
                     {
@@ -75,7 +71,6 @@ function matrizBackPositions()
                     {
                         matrizBBack6[i][j] = $("#b"+(i+1))[0].style.left;
                         matrizRBack6[i][j] = $("#r"+(i+1))[0].style.left;
-    
                     } 
                     else if(j == 1)
                     {

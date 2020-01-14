@@ -4,7 +4,7 @@ const app = express();
 const DataStore = require('nedb');
 
 app.listen(3000, () => console.log("listening at 3000"));
-app.use(express.static('public'));
+app.use(express.static('./src/client'));
 app.use(express.json({limit: '1mb'}));
 
 let db = []; // Banco de dados.
@@ -24,14 +24,14 @@ for(let i=0; i<11; i++)
     }
 } 
 
-db.londrina = new DataStore({filename:'database/LDApreset.db', autoload: true});
-db.maringa = new DataStore({filename:'database/MRGpreset.db', autoload: true});
-db.noroeste = new DataStore({filename:'database/NORpreset.db', autoload: true});
-db.guarapuava = new DataStore({filename:'database/GUApreset.db', autoload: true});
-db.foz = new DataStore({filename:'database/FOZpreset.db', autoload: true});
-db.cascavel = new DataStore({filename:'database/CVLpreset.db', autoload: true});
-db.pontagrossa = new DataStore({filename:'database/PTGpreset.db', autoload: true});
-db.curitiba = new DataStore({filename:'database/CTApreset.db', autoload: true});
+db.londrina = new DataStore({filename:'./src/server/database/LDApreset.db', autoload: true});
+db.maringa = new DataStore({filename:'./src/server/database/MRGpreset.db', autoload: true});
+db.noroeste = new DataStore({filename:'./src/server/database/NORpreset.db', autoload: true});
+db.guarapuava = new DataStore({filename:'./src/server/database/GUApreset.db', autoload: true});
+db.foz = new DataStore({filename:'./src/server/database/FOZpreset.db', autoload: true});
+db.cascavel = new DataStore({filename:'./src/server/database/CVLpreset.db', autoload: true});
+db.pontagrossa = new DataStore({filename:'./src/server/database/PTGpreset.db', autoload: true});
+db.curitiba = new DataStore({filename:'./src/server/database/CTApreset.db', autoload: true});
 
 app.get('/api', (request, response) =>
 {

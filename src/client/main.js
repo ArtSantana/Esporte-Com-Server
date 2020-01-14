@@ -114,7 +114,6 @@ function Gravador()
 		postData = data;
 		post();
 	}
-	// No REC entra sempre primeiro aqui.
 	else
 	{
 		alert("Selecione o preset a ser gravado");
