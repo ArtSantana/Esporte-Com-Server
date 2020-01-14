@@ -17,7 +17,7 @@ for(let i=0; i<11; i++)
 {
     for(let j=0; j<2; j++)
     {
-        baseMatrizes[i][j] = "0px";
+        baseMatrizes[i][j] = "";
     }
 }
 
