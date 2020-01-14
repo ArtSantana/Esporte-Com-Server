@@ -7,9 +7,9 @@ app.listen(3000, () => console.log("listening at 3000"));
 app.use(express.static('public'));
 app.use(express.json({limit: '1mb'}));
 
-var db = []; // Banco de dados.
+let db = []; // Banco de dados.
 
-var baseMatrizes = [];
+let baseMatrizes = [];
 
 for(let i=0; i<11; i++)
 {

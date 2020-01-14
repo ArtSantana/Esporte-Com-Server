@@ -3,7 +3,7 @@ $(document).ready(function()
 	const fixerHorizontalTouch = screen.width * 100 / 1920;
 	const fixerVerticalTouch = screen.height * 905 / 1080;
     var b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, 
-    r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11;
+        r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11;
     
     b1 = $("#b1")[0];
     b2 = $("#b2")[0];
@@ -16,7 +16,7 @@ $(document).ready(function()
     b9 = $("#b9")[0];
     b10 = $("#b10")[0];
     b11 = $("#b11")[0];
-    // ------------------- //
+
     r1 = $("#r1")[0];
     r2 = $("#r2")[0];
     r3 = $("#r3")[0];

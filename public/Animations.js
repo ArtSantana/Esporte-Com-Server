@@ -1,9 +1,9 @@
 let toggleA = true, toggleB = false;
 // VISIBILIDADE DOS TIMES
-var returnPositions = new TimelineLite(), returnPositions2 = new TimelineLite(),
+let returnPositions = new TimelineLite(), returnPositions2 = new TimelineLite(),
     returnPositions3 = new TimelineLite(), returnPositions4 = new TimelineLite(),
     returnPositions5 = new TimelineLite(), returnPositions6 = new TimelineLite();
-var goPositions = new TimelineLite(), goPositions2 = new TimelineLite(),
+let goPositions = new TimelineLite(), goPositions2 = new TimelineLite(),
     goPositions3 = new TimelineLite(), goPositions4 = new TimelineLite(),
     goPositions5 = new TimelineLite(), goPositions6 = new TimelineLite();
 $("#black").click(toggleTeamA);

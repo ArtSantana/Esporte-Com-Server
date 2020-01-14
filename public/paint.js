@@ -1,10 +1,10 @@
 $(document).ready(function()
 {
-    var bntStartPaint = $("#startPaint");
+    const bntStartPaint = $("#startPaint");
     const canvas = $("#cv")[0];
     const ctx = canvas.getContext("2d");
-    var paint = false, enablePaintFunction = false, arrowFlag = false;
-    var startX, startY, endX, endY;
+    let paint = false, enablePaintFunction = false, arrowFlag = false;
+    let startX, startY, endX, endY;
     
     const fixerHorizontalDraw = screen.width * 90 / 1366
     const fixerVerticalDraw = screen.height * 25 / 768
@@ -12,7 +12,7 @@ $(document).ready(function()
     const fixerHorizontalArrow = screen.width * 125 / 1920
     const fixerVerticalArrow = screen.height * 30 / 1080;
 
-    var arrowDraw = false;
+    let arrowDraw = false;
 
     ctx.canvas.height = screen.height * 77.5 / 100 
     ctx.canvas.width = screen.width * 72.5 / 100

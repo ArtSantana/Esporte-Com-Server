@@ -1,5 +1,5 @@
-var playSwitch = 0;
-var matrizBBack1 = [], matrizBBack2 = [], matrizBGo1 = [], matrizBGo2 = []
+let playSwitch = 0;
+let matrizBBack1 = [], matrizBBack2 = [], matrizBGo1 = [], matrizBGo2 = []
 	, matrizBBack3 = [], matrizBBack4 = [], matrizBBack5 = [], matrizBBack6 = []
 	, matrizBGo3 = [], matrizBGo4 = [], matrizBGo5 = [], matrizBGo6 = []
 	, matrizRBack3 = [], matrizRBack4 = [], matrizRBack5 = [], matrizRBack6 = []
@@ -7,7 +7,9 @@ var matrizBBack1 = [], matrizBBack2 = [], matrizBGo1 = [], matrizBGo2 = []
 	, matrizRBack1 = [], matrizRBack2 = [], matrizRGo1 = [], matrizRGo2 = [];
 
 //////////////
-var recFlag = null, flagBackRecord = 1, recording = false;
+let recFlag = null;
+let flagBackRecord = 1;
+let recording = false;
 
 /*
 As variáveis back são responsáveis por fazer animação dos jogadores voltando a suas posições inicias,
@@ -108,6 +110,7 @@ function Gravador()
 				data.presetNumber = 6;
 				break;
 		}
+		console.log(data);
 		postData = data;
 		post();
 	}
