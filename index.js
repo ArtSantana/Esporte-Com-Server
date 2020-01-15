@@ -13,8 +13,7 @@ for(let i=0; i<11; i++){
      baseMatrizes[i] = [];
 }
 
-for(let i=0; i<11; i++)
-{
+for(let i=0; i<11; i++){
     for(let j=0; j<2; j++)
     {
         baseMatrizes[i][j] = "";
@@ -52,6 +51,7 @@ app.post('/api/presets', (request, reponse) =>{
     const data = request.body;
     const presetNumber = request.body.presetNumber;
     console.log("Request received");
+    console.log(request.body);
     // Update do banco de dados baseado no preset escolhido na hora da gravação feita pelo front-end
     db.londrina.update({preset: presetNumber}, {preset: presetNumber, presetPositions: data.positions});
     db.londrina.loadDatabase(); /* É necessário dar load no banco para atualizar o registro */
