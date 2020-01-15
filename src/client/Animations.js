@@ -60,7 +60,7 @@ function GoPosition(n){
 
 
 function toggleTeamA(){
-    if(toggleA == false){
+    if(!toggleA){
         $("#TimeA").css('visibility', 'visible');
         toggleA = true;
     }   
@@ -72,7 +72,7 @@ function toggleTeamA(){
 }
 
 function toggleTeamB(){
-    if(toggleB == false){
+    if(!toggleB){
         $("#TimeB").css('visibility', 'visible');
         toggleB = true;
     }
