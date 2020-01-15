@@ -39,13 +39,11 @@ db.pontagrossa = new DataStore({filename:'./src/server/database/PTGpreset.db', a
 db.curitiba = new DataStore({filename:'./src/server/database/CTApreset.db', autoload: true});
 
 app.get('/api', (request, response) =>{
-    db.londrina.find({}, (err, data) =>{
+    db.londrina.find({}).sort({preset: 1}).exec((err, data)=>{
         if(err){
             response.end();
             return;
         }
-        console.log(data);
-        console.log("\n\n")
         response.json(data);
     })
 })
@@ -54,9 +52,6 @@ app.post('/api/presets', (request, reponse) =>{
     const data = request.body;
     const presetNumber = request.body.presetNumber;
     console.log("Request received");
-    console.log(request.body);
-
-    console.log(data);
     // Update do banco de dados baseado no preset escolhido na hora da gravação feita pelo front-end
     db.londrina.update({preset: presetNumber}, {preset: presetNumber, presetPositions: data.positions});
     db.londrina.loadDatabase(); /* É necessário dar load no banco para atualizar o registro */
