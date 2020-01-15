@@ -1,4 +1,3 @@
-var postData;
 let data = {
 	presetNumber: 0,
 	positions: {
@@ -30,7 +29,7 @@ async function postDeletePresets(){
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(postData)
+		body: JSON.stringify(data)
 	}
 	const response = await fetch('/api/delete', postOptions);
 	const json = await response.json();
