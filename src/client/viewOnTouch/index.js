@@ -23,33 +23,27 @@ $("#play").click(function(){
 });
 
 $("#presetButton1").click(function(){
-
 	playSwitch = 0;
 	ReturnPosition(playSwitch);
 });
 
 $("#presetButton2").click(function(){
-
 	playSwitch = 1;
 	ReturnPosition(playSwitch);	
 });
 $("#presetButton3").click(()=>{
-
 	playSwitch = 2;
 	ReturnPosition(playSwitch);
 })
 $("#presetButton4").click(()=>{
-
 	playSwitch = 3;
 	ReturnPosition(playSwitch);
 })
 $("#presetButton5").click(()=>{
-
 	playSwitch = 4;
 	ReturnPosition(playSwitch);
 })
 $("#presetButton6").click(()=>{
-
 	playSwitch = 5;
 	ReturnPosition(playSwitch);
 })
