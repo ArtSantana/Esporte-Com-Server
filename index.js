@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const DataStore = require('nedb');
-
-const PORT = 3000
+const PORT = 3000;
 
 app.listen(PORT, () => console.log(`The application is running at port ${PORT}`));
 app.use(express.static('./src/client'));
@@ -12,16 +11,14 @@ let db = [];
 let baseMatrizes = [];
 
 for(let i=0; i<11; i++){
-     baseMatrizes[i] = [];
+    baseMatrizes[i] = [];
 }
 
 for(let i=0; i<11; i++){
-    for(let j=0; j<2; j++)
-    {
+    for(let j=0; j<2; j++){
         baseMatrizes[i][j] = "";
     }
 }
-
 
 const presetBase = {
     matrixGoTeamA: baseMatrizes,
@@ -56,10 +53,11 @@ app.post('/api/presets', (request, reponse) =>{
     console.log(request.body);
     // Update do banco de dados baseado no preset escolhido na hora da gravação feita pelo front-end
     db.londrina.update({preset: presetNumber}, {preset: presetNumber, presetPositions: data.positions});
-    db.londrina.loadDatabase(); /* É necessário dar load no banco para atualizar o registro */
+    db.londrina.loadDatabase(); 
+    /* É necessário dar load no banco para atualizar o registro */
 })
 
-app.post('/api/delete', (request, response) =>{
+app.post('/api/delete', () =>{
     db.londrina.remove({}, {multi: true});
     db.londrina.loadDatabase();
     db.londrina.insert({preset: 1, presetPositions: presetBase});

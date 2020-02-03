@@ -13,7 +13,7 @@
   -o-transition: .25s ease-in-out; 
   transition: .25s ease-in-out; 
   -webkit-text-size-adjust: none; 
-  z-index: 999999999999999999999999999999;
+  z-index: 88888888888;
 }
 
 
@@ -62,7 +62,6 @@
   width: 13vw; 
   background: #2f2f2f; 
   overflow-x: hidden; 
-  overflow-y: hidden;
   padding: 20px; 
   -webkit-overflow-scrolling: touch; 
 } 

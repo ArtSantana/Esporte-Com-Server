@@ -90,7 +90,7 @@ body
     margin-top: 3.7vh;
     margin-left: 7vw;
 
-    z-index: 2;
+    z-index: 9999999999999999;
 }
 
 #bnt img 
