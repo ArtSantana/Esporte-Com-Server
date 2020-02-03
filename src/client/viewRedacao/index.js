@@ -19,9 +19,9 @@ $("#deleteButton").click(() =>{
 const dbInformation = getData();
 let matrizes = new Array();
 
-Promise.resolve(dbInformation).then(dataReceived =>{
-	matrizes = dataReceived;
-})
+ Promise.resolve(dbInformation).then(dataReceived =>{
+	 matrizes = dataReceived;
+	})
 
 function Gravador(){
 	if(recFlag == false){
@@ -29,12 +29,12 @@ function Gravador(){
 		console.log(gravadorPost);
 		matrizGoPositions(gravadorPost);
 		data.positions = matrizes[gravadorPost].presetPositions;
-		data.presetNumber = gravadorPost + 1;
+		data.presetNumber = gravadorPost;
 		
 		postPreset();
 		alert('PRESET SALVO')
 	}
-	else{
+	else{ // Always enter here first
 		alert("Selecione o preset a ser gravado");
 		recording = true;
 		recFlag = false;
@@ -48,7 +48,8 @@ $("#play").click(function(){
 function handlePresetClick(n){
 	alert('Você está gravando no preset ' + n)
 	matrizBackPositions(n-1);
-	gravadorPost = n-1;
+	console.log(matrizes[0]);
+	gravadorPost = n;
 	recording = false;
 }
 
