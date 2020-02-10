@@ -5,7 +5,7 @@ let gravadorPost = 0
 
 // Removendo o clique direito da aplicação
 document.addEventListener('contextmenu', event => event.preventDefault());
-// Deixando os jogadores draggable
+
 for(i=1; i<12; i++){	
 	$("#b"+i).draggable();
 	$("#r"+i).draggable();    
