@@ -19,12 +19,12 @@ db.cascavel = new DataStore({filename:'./src/server/database/CVLpreset.db', auto
 db.pontagrossa = new DataStore({filename:'./src/server/database/PTGpreset.db', autoload: true});
 db.curitiba = new DataStore({filename:'./src/server/database/CTApreset.db', autoload: true});
 
-for(let i=0; i<11; i++){
+for(let i=0; i<11; i++) {
     baseMatrizes[i] = [];
 }
 
-for(let i=0; i<11; i++){
-    for(let j=0; j<2; j++){
+for(let i=0; i<11; i++) {
+    for(let j=0; j<2; j++) {
         baseMatrizes[i][j] = "";
     }
 }
@@ -37,8 +37,8 @@ const presetBase = {
 }
 
 
-app.get('/api', (request, response) =>{
-    db.londrina.find({}).sort({preset: 1}).exec((err, data)=>{
+app.get('/api', (request, response) => {
+    db.londrina.find({}).sort({preset: 1}).exec((err, data)=> {
         if(err){
             response.end();
             return;
@@ -47,7 +47,7 @@ app.get('/api', (request, response) =>{
     })
 })
 
-app.post('/api/presets', (request, reponse) =>{
+app.post('/api/presets', (request, reponse) => {
     const data = request.body;
     const presetNumber = request.body.presetNumber;
     console.log("Request received");
@@ -58,7 +58,7 @@ app.post('/api/presets', (request, reponse) =>{
     /* É necessário dar load no banco para atualizar o registro */
 })
 
-app.post('/api/delete', () =>{
+app.post('/api/delete', () => {
     db.londrina.remove({}, {multi: true});
     db.londrina.loadDatabase();
     db.londrina.insert({preset: 1, presetPositions: presetBase});
