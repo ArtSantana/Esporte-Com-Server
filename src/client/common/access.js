@@ -7,9 +7,6 @@ let data = {
 		matrixBackTeamB: [],
 	}
 }
-const del = {
-    cleanDatabase: true
-}
 
 async function postPreset(){
 	postOptions = {
@@ -20,7 +17,6 @@ async function postPreset(){
 		body: JSON.stringify(data)
 	}
 	const response = await fetch('/api/presets', postOptions);
-	const json = await response.json();
 }
 
 async function postDeletePresets(){
@@ -32,7 +28,6 @@ async function postDeletePresets(){
 		body: JSON.stringify(data)
 	}
 	const response = await fetch('/api/delete', postOptions);
-	const json = await response.json();
 }
 
 async function getData(){
