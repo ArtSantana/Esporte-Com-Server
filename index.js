@@ -10,6 +10,15 @@ app.use(express.json({limit: '1mb'}));
 let db = [];
 let baseMatrizes = [];
 
+db.londrina = new DataStore({filename:'./src/server/database/LDApreset.db', autoload: true});
+db.maringa = new DataStore({filename:'./src/server/database/MRGpreset.db', autoload: true});
+db.noroeste = new DataStore({filename:'./src/server/database/NORpreset.db', autoload: true});
+db.guarapuava = new DataStore({filename:'./src/server/database/GUApreset.db', autoload: true});
+db.foz = new DataStore({filename:'./src/server/database/FOZpreset.db', autoload: true});
+db.cascavel = new DataStore({filename:'./src/server/database/CVLpreset.db', autoload: true});
+db.pontagrossa = new DataStore({filename:'./src/server/database/PTGpreset.db', autoload: true});
+db.curitiba = new DataStore({filename:'./src/server/database/CTApreset.db', autoload: true});
+
 for(let i=0; i<11; i++){
     baseMatrizes[i] = [];
 }
@@ -27,14 +36,6 @@ const presetBase = {
     matrixBackTeamB: baseMatrizes,
 }
 
-db.londrina = new DataStore({filename:'./src/server/database/LDApreset.db', autoload: true});
-db.maringa = new DataStore({filename:'./src/server/database/MRGpreset.db', autoload: true});
-db.noroeste = new DataStore({filename:'./src/server/database/NORpreset.db', autoload: true});
-db.guarapuava = new DataStore({filename:'./src/server/database/GUApreset.db', autoload: true});
-db.foz = new DataStore({filename:'./src/server/database/FOZpreset.db', autoload: true});
-db.cascavel = new DataStore({filename:'./src/server/database/CVLpreset.db', autoload: true});
-db.pontagrossa = new DataStore({filename:'./src/server/database/PTGpreset.db', autoload: true});
-db.curitiba = new DataStore({filename:'./src/server/database/CTApreset.db', autoload: true});
 
 app.get('/api', (request, response) =>{
     db.londrina.find({}).sort({preset: 1}).exec((err, data)=>{
