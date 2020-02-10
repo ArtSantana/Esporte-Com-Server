@@ -29,6 +29,28 @@ a{
 }
 
 #bnt{
-	margin-top: 20vh;
-	margin-left: 35vw;
+	text-align: center;
+	margin-top: 35vh;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	background-color: #dbd7d7;
+}
+
+#header {
+	background-color:
+	#006497;
+	height: 10vh;
+	margin: -2vw;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+
+#logo {
+	margin-top: 5vh;
+	height: 3vh;
 }
