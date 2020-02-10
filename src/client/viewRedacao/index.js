@@ -23,12 +23,11 @@ let matrizes = new Array();
 	 matrizes = dataReceived;
 	})
 
-function Gravador(){
+function Gravador(){ // O gravadorPost é diminuido em 1 para acertar o index do objeto.
 	if(recFlag == false){
 		recFlag = true;
-		console.log(gravadorPost);
-		matrizGoPositions(gravadorPost);
-		data.positions = matrizes[gravadorPost].presetPositions;
+		matrizGoPositions(gravadorPost - 1);
+		data.positions = matrizes[gravadorPost-1].presetPositions;
 		data.presetNumber = gravadorPost;
 		
 		postPreset();
@@ -48,7 +47,6 @@ $("#play").click(function(){
 function handlePresetClick(n){
 	alert('Você está gravando no preset ' + n)
 	matrizBackPositions(n-1);
-	console.log(matrizes[0]);
 	gravadorPost = n;
 	recording = false;
 }
