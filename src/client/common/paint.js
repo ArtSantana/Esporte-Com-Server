@@ -1,5 +1,4 @@
-$(document).ready(function()
-{
+
     const bntStartPaint = $("#startPaint");
     const canvas = $("#cv")[0];
     const ctx = canvas.getContext("2d");
@@ -16,13 +15,12 @@ $(document).ready(function()
 
     ctx.canvas.height = screen.height * 77.5 / 100 
     ctx.canvas.width = screen.width * 72.5 / 100
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = 'red';
 
     function startPaint()
     {
         paint = true;   
         ctx.beginPath();
-
     }
 
     function stopPaint()
@@ -37,6 +35,7 @@ $(document).ready(function()
         if(!enablePaintFunction) return ;
 
         arrowFlag = false;
+        ctx.strokeStyle = ColorChange;
         ctx.lineWidth = 10;
         ctx.lineCap = "round";
 
@@ -52,13 +51,14 @@ $(document).ready(function()
         if(!enablePaintFunction) return ;
 
         arrowFlag = false;
-
+        ctx.strokeStyle = ColorChange;
         ctx.lineWidth = 7;
         ctx.lineCap = "round";
         ctx.lineTo(e.pageX - fixerHorizontalDraw, e.pageY - fixerVerticalDraw);
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(e.pageX - fixerHorizontalDraw, e.pageY - fixerVerticalDraw);
+        console.log(ctx.strokeStyle);
     }
 
     $("#clearCanvas").click(function()
@@ -109,7 +109,8 @@ $(document).ready(function()
 			endX = e.touches[0].pageX;
 			endY = e.touches[0].pageY;
 			
-			if(startX == endX && startY == endY) return ;
+            if(startX == endX && startY == endY) return ;
+            ctx.strokeStyle = ColorChange;
 			ctx.beginPath()
 			drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
 			ctx.stroke();
@@ -151,7 +152,7 @@ $(document).ready(function()
         ctx.beginPath();
         ctx.moveTo(fromx, fromy);
         ctx.lineTo(tox, toy);
-        ctx.strokeStyle = "red";
+        ctx.strokeStyle = ColorChange;
         ctx.lineWidth = 12;
         ctx.stroke();
 
@@ -168,10 +169,9 @@ $(document).ready(function()
         ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),toy-headlen*Math.sin(angle-Math.PI/7));
 
         //draws the paths created above
-        ctx.strokeStyle = "red";
+        ctx.strokeStyle = ColorChange;
         ctx.lineWidth = 12;
         ctx.stroke();
         ctx.fillStyle = "red";
         ctx.fill();
     }
-})
