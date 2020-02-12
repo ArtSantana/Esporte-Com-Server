@@ -54,3 +54,16 @@ body {
 	margin-top: 5vh;
 	height: 3vh;
 }
+
+#footer {
+	text-align: center;
+	background-color: #006497;
+	color: #fff;
+	height: 5vh;
+	padding-top: 2vh;
+	font-family: Arial,Helvetica,sans-serif;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	position: fixed;
+}
