@@ -129,10 +129,6 @@ body
 }
 
 #paletteColor {
-    grid-column-start: 4;
-    grid-row-start: 1;
-    margin-top: 65vh;
-    margin-left: 0.5vw;
     display: flex;
     border-radius: 10px;
     z-index: 9998;
@@ -142,28 +138,28 @@ body
     background-color: red;
     width: 2.5vw;
     height: 4vh;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 #blue {
     background-color: blue;
     width: 2.5vw;
     height: 4vh;
-    border-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #white {
     background-color: white;
     width: 2.5vw;
     height: 4vh;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 #yellow {
     background-color: yellow;
     width: 2.5vw;
     height: 4vh;
-    border-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 body::-webkit-scrollbar { width: 0 !important }
