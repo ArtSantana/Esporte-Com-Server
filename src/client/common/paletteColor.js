@@ -1,4 +1,4 @@
-let ColorChange = 'yellow';
+let ColorChange = 'red';
 
 $("#redColor").click(() => {
   ColorChange = 'red';
