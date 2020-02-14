@@ -101,7 +101,7 @@
 			endY = e.touches[0].pageY;
 			
             if(startX == endX && startY == endY) return ;
-            ctx.strokeStyle = ColorChange;
+            ctx.strokeStyle = 'red';
 			ctx.beginPath()
 			drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
 			ctx.stroke();
@@ -127,7 +127,6 @@
         ctx.beginPath()
         drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
         ctx.stroke();
-		console.log('Conjunto de X', startX, endX, '\nConjunto de Y', startY, endY)
     }
 
 
@@ -141,7 +140,7 @@
         ctx.beginPath();
         ctx.moveTo(fromx, fromy);
         ctx.lineTo(tox, toy);
-        ctx.strokeStyle = ColorChange;
+        ctx.strokeStyle = 'red';
         ctx.lineWidth = 12;
         ctx.stroke();
 
@@ -158,7 +157,7 @@
         ctx.lineTo(tox-headlen*Math.cos(angle-Math.PI/7),toy-headlen*Math.sin(angle-Math.PI/7));
 
         //draws the paths created above
-        ctx.strokeStyle = ColorChange;
+        ctx.strokeStyle = 'red';
         ctx.lineWidth = 12;
         ctx.stroke();
         ctx.fillStyle = "red";
