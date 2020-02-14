@@ -17,20 +17,17 @@
     ctx.canvas.width = screen.width * 72.5 / 100
     ctx.strokeStyle = 'red';
 
-    function startPaint()
-    {
+    function startPaint() {
         paint = true;   
         ctx.beginPath();
     }
 
-    function stopPaint()
-    {
+    function stopPaint() {
         paint = false;
         ctx.beginPath();
     }
 
-    function draw(e)
-    {
+    function draw(e) {
         if(!paint) return ;
         if(!enablePaintFunction) return ;
 
@@ -45,8 +42,7 @@
         ctx.moveTo(e.touches[0].pageX - fixerHorizontalDraw, e.touches[0].pageY - fixerVerticalDraw);
     }
 	
-	function drawMouse(e)
-    {
+	function drawMouse(e) {
         if(!paint) return ;
         if(!enablePaintFunction) return ;
 
@@ -61,15 +57,13 @@
         console.log(ctx.strokeStyle);
     }
 
-    $("#clearCanvas").click(function()
-    {
+    $("#clearCanvas").click(function(){
         ctx.clearRect(0, 0, 1920, 1080);
         enablePaintFunction = false;
         arrowFlag = false;
     })
 
-    bntStartPaint.click(function()
-    {
+    bntStartPaint.click(function(){
         enablePaintFunction = true;
         arrowFlag = false;
     });
@@ -89,21 +83,18 @@
 
     $("#arrow").click(() => arrowFlag = true);
 
-    function startArrowTouch(e)
-    {
+    function startArrowTouch(e) {
         if(!arrowFlag) return; 
 
         enablePaintFunction = false;
 
 		
-		if(!arrowDraw)
-		{
+		if(!arrowDraw) {
 			arrowDraw = true;
 			startX = e.touches[0].pageX;
 			startY = e.touches[0].pageY;
 		}
-		else
-		{
+		else {
 			arrowDraw = false;
 			
 			endX = e.touches[0].pageX;
@@ -118,8 +109,7 @@
 		
     }
 	
-    function startArrow(e)
-    {
+    function startArrow(e) {
         if(!arrowFlag) return; 
 
         enablePaintFunction = false;
@@ -127,8 +117,7 @@
         startY = e.pageY;
     }
 
-    function endArrow(e)
-    {
+    function endArrow(e) {
         if(!arrowFlag) return; 
 
         endX = e.pageX;
