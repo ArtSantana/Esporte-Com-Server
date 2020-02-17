@@ -106,6 +106,7 @@ body
 #paletteColor {
     display: flex;
     margin-left: 0.5vw;
+    visibility: hidden;
 }
 
 #redColor {
