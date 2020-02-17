@@ -61,7 +61,6 @@
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(e.pageX - fixerHorizontalDraw, e.pageY - fixerVerticalDraw);
-        console.log(ctx.strokeStyle);
     }
 
     $("#clearCanvas").click(function(){
