@@ -2,15 +2,13 @@
     const bntStartPaint = $("#startPaint");
     const canvas = $("#cv")[0];
     const ctx = canvas.getContext("2d");
+    let visibilityPaletteColor = false;
     let paint = false, enablePaintFunction = false, arrowFlag = false;
     let startX, startY, endX, endY;
-    
     const fixerHorizontalDraw = screen.width * 90 / 1366
     const fixerVerticalDraw = screen.height * 25 / 768
-    
     const fixerHorizontalArrow = screen.width * 125 / 1920
     const fixerVerticalArrow = screen.height * 30 / 1080;
-
     let arrowDraw = false;
 
     ctx.canvas.height = screen.height * 77.5 / 100 
@@ -18,13 +16,22 @@
     ctx.strokeStyle = 'red';
 
     function startPaint() {
-        paint = true;   
+        paint = true;
         ctx.beginPath();
     }
 
     function stopPaint() {
         paint = false;
         ctx.beginPath();
+    }
+
+    function visibilityPalette(toggle) {
+        if(!toggle) {
+            $("#paletteColor").css('visibility', 'hidden');
+        }
+        else {
+            $("#paletteColor").css('visibility', 'visible');
+        }
     }
 
     function draw(e) {
@@ -61,11 +68,17 @@
         ctx.clearRect(0, 0, 1920, 1080);
         enablePaintFunction = false;
         arrowFlag = false;
+        visibilityPaletteColor = false;
+        visibilityPalette(visibilityPaletteColor);
     })
 
     bntStartPaint.click(function(){
         enablePaintFunction = true;
         arrowFlag = false;
+        // Alteração da visibilidade do palette colors em toggle
+        if(visibilityPaletteColor) visibilityPaletteColor = false;
+        else visibilityPaletteColor = true;
+        visibilityPalette(visibilityPaletteColor);   
     });
 
     canvas.addEventListener('touchmove', draw);
@@ -81,13 +94,17 @@
     canvas.addEventListener('mousedown', startArrow);
     canvas.addEventListener('mouseup', endArrow);
 
-    $("#arrow").click(() => arrowFlag = true);
+    $("#arrow").click(() => {
+        arrowFlag = true;
+        visibilityPaletteColor = false;
+        visibilityPalette(visibilityPaletteColor);
+    });
 
     function startArrowTouch(e) {
         if(!arrowFlag) return; 
 
         enablePaintFunction = false;
-
+        
 		
 		if(!arrowDraw) {
 			arrowDraw = true;
@@ -111,7 +128,8 @@
 	
     function startArrow(e) {
         if(!arrowFlag) return; 
-
+        visibilityPaletteColor = false;
+        visibilityPalette(visibilityPaletteColor);
         enablePaintFunction = false;
         startX = e.pageX;
         startY = e.pageY;
