@@ -4,6 +4,7 @@ $("#btnVideo").click(() => {
     $("#TimeB").css('visibility', 'hidden');
     $("#presetButtons").css('visibility', 'hidden');
     $("#bnt").css('visibility', 'hidden');
+    $("#paletteColor").css('visibility', 'hidden');
     $("#menuVideo").css('visibility', 'visible');
 })
 
