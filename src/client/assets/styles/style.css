@@ -139,4 +139,13 @@ body {
     visibility: hidden;
 }
 
+#videoSelect {
+    grid-column-start: 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 35vh;
+    visibility: hidden;
+}
 body::-webkit-scrollbar { width: 0 !important }
