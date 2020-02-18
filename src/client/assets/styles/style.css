@@ -59,7 +59,6 @@ body {
     justify-self: center;
 }
 
-
 #presetButtons {    
     margin-top: 5vw;
     margin-right: 10px;
@@ -128,6 +127,16 @@ body {
     width: 2.5vw;
     height: 4vh;
     border-top-right-radius: 10px;
+}
+
+#menuVideo {
+    grid-row-start: 1;
+    grid-column-start: 4;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 40vh;
+    visibility: hidden;
 }
 
 body::-webkit-scrollbar { width: 0 !important }

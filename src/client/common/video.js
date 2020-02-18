@@ -1,11 +1,19 @@
-let toggleVideo = false;
 $("#btnVideo").click(() => {
-  if(toggleVideo){
-    $("#video").css('visibility', 'hidden');
-    toggleVideo = false;
-  }
-  else {
     $("#video").css('visibility', 'visible');
-    toggleVideo = true;
-  }
+    $("#TimeA").css('visibility', 'hidden');
+    $("#TimeB").css('visibility', 'hidden');
+    $("#presetButtons").css('visibility', 'hidden');
+    $("#bnt").css('visibility', 'hidden');
+    $("#menuVideo").css('visibility', 'visible');
 })
+
+$("#backButton").click(() => {
+  $("#presetButtons").css('visibility', 'visible');
+  $("#bnt").css('visibility', 'visible');
+  $("#TimeA").css('visibility', 'visible');
+  $("#menuVideo").css('visibility', 'hidden');
+  $("#video").css('visibility', 'hidden');
+})
+
+$("#playVideo").click(() => $("#video").trigger('play'));
+$("#pauseVideo").click(() => $("#video").trigger('pause'));
