@@ -18,9 +18,9 @@ $("#deleteButton").click(() =>{
 const dbInformation = getData();
 let matrizes = new Array();
 
- Promise.resolve(dbInformation).then(dataReceived =>{
-	 matrizes = dataReceived;
-	})
+Promise.resolve(dbInformation).then(dataReceived => {
+	matrizes = dataReceived;
+})
 
 function Gravador(){ // O gravadorPost é diminuido em 1 para acertar o index do objeto.
 	if(recFlag == false){
