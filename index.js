@@ -61,11 +61,8 @@ app.post('/api/presets', (request, reponse) => {
 app.delete('/api/delete', (request, response) => {
     db.londrina.remove({}, {multi: true});
     db.londrina.loadDatabase();
-    db.londrina.insert({preset: 1, presetPositions: presetBase});
-    db.londrina.insert({preset: 2, presetPositions: presetBase});
-    db.londrina.insert({preset: 3, presetPositions: presetBase});
-    db.londrina.insert({preset: 4, presetPositions: presetBase});
-    db.londrina.insert({preset: 5, presetPositions: presetBase});
-    db.londrina.insert({preset: 6, presetPositions: presetBase});
+    for(let i=1; i<7; i++) {
+        db.londrina.insert({preset: i, presetPositions: presetBase});
+    }
     response.end();
 })
