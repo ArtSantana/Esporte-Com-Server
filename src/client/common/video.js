@@ -1,12 +1,12 @@
 $("#btnVideo").click(() => {
-    $("#video").css('visibility', 'visible');
-    $("#TimeA").css('visibility', 'hidden');
-    $("#TimeB").css('visibility', 'hidden');
-    $("#presetButtons").css('visibility', 'hidden');
-    $("#bnt").css('visibility', 'hidden');
-    $("#paletteColor").css('visibility', 'hidden');
-    $("#menuVideo").css('visibility', 'visible');
-    $("#videoSelect").css('visibility', 'visible');
+  $("#video").css('visibility', 'visible');
+  $("#TimeA").css('visibility', 'hidden');
+  $("#TimeB").css('visibility', 'hidden');
+  $("#presetButtons").css('visibility', 'hidden');
+  $("#bnt").css('visibility', 'hidden');
+  $("#paletteColor").css('visibility', 'hidden');
+  $("#menuVideo").css('visibility', 'visible');
+  $("#videoSelect").css('visibility', 'visible');
 })
 
 $("#backButton").click(() => {
