@@ -15,6 +15,7 @@ $("#backButton").click(() => {
   $("#TimeA").css('visibility', 'visible');
   $("#menuVideo").css('visibility', 'hidden');
   $("#videoSelect").css('visibility', 'hidden');
+  $("#video").trigger('pause');
   $("#video").css('visibility', 'hidden');
 })
 
