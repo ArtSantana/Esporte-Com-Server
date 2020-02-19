@@ -58,7 +58,8 @@ app.post('/api/presets', (request, reponse) => {
     /* É necessário dar load no banco para atualizar o registro */
 })
 
-app.post('/api/delete', () => {
+app.post('/api/delete', (request, response) => {
+    console.log('delete option');
     db.londrina.remove({}, {multi: true});
     db.londrina.loadDatabase();
     db.londrina.insert({preset: 1, presetPositions: presetBase});
@@ -67,4 +68,5 @@ app.post('/api/delete', () => {
     db.londrina.insert({preset: 4, presetPositions: presetBase});
     db.londrina.insert({preset: 5, presetPositions: presetBase});
     db.londrina.insert({preset: 6, presetPositions: presetBase});
+    response.end();
 })

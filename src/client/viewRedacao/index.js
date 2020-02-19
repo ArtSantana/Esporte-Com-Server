@@ -12,7 +12,6 @@ for(i=1; i<12; i++){
 }
 
 $("#deleteButton").click(() =>{
-	postData = del;
 	postDeletePresets();
 })
 
