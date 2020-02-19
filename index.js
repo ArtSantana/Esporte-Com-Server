@@ -20,49 +20,49 @@ db.pontagrossa = new DataStore({filename:'./src/server/database/PTGpreset.db', a
 db.curitiba = new DataStore({filename:'./src/server/database/CTApreset.db', autoload: true});
 
 for(let i=0; i<11; i++) {
-    baseMatrizes[i] = [];
+  baseMatrizes[i] = [];
 }
 
 for(let i=0; i<11; i++) {
-    for(let j=0; j<2; j++) {
-        baseMatrizes[i][j] = "";
-    }
+  for(let j=0; j<2; j++) {
+    baseMatrizes[i][j] = "";
+  }
 }
 
 const presetBase = {
-    matrixGoTeamA: baseMatrizes,
-    matrixGoTeamB: baseMatrizes,
-    matrixBackTeamA: baseMatrizes,
-    matrixBackTeamB: baseMatrizes,
+  matrixGoTeamA: baseMatrizes,
+  matrixGoTeamB: baseMatrizes,
+  matrixBackTeamA: baseMatrizes,
+  matrixBackTeamB: baseMatrizes,
 }
 
 app.get('/api', (request, response) => {
-    db.londrina.find({}).sort({preset: 1}).exec((err, data)=> {
-        if(err){
-            response.end();
-            return;
-        }
-        response.json(data);
-    })
+  db.londrina.find({}).sort({preset: 1}).exec((err, data)=> {
+    if(err){
+      response.end();
+      return;
+    }
+    response.json(data);
+  })
 })
 
 app.post('/api/presets', (request, reponse) => {
-    const data = request.body;
-    const presetNumber = request.body.presetNumber;
-    console.log("Request received");
-    console.log(request.body);
-    // Update do banco de dados baseado no preset escolhido na hora da gravação feita pelo front-end
-    db.londrina.update({preset: presetNumber}, {preset: presetNumber, presetPositions: data.positions});
-    db.londrina.loadDatabase(); 
-    /* É necessário dar load no banco para atualizar o registro */
-    response.end();
+  const data = request.body;
+  const presetNumber = request.body.presetNumber;
+  console.log("Request received");
+  console.log(request.body);
+// Update do banco de dados baseado no preset escolhido na hora da gravação feita pelo front-end
+  db.londrina.update({preset: presetNumber}, {preset: presetNumber, presetPositions: data.positions});
+  db.londrina.loadDatabase(); 
+/* É necessário dar load no banco para atualizar o registro */
+  response.end();
 })
 
 app.delete('/api/delete', (request, response) => {
-    db.londrina.remove({}, {multi: true});
-    db.londrina.loadDatabase();
-    for(let i=1; i<7; i++) {
-        db.londrina.insert({preset: i, presetPositions: presetBase});
-    }
-    response.end();
+  db.londrina.remove({}, {multi: true});
+  db.londrina.loadDatabase();
+  for(let i=1; i<7; i++) {
+    db.londrina.insert({preset: i, presetPositions: presetBase});
+  }
+  response.end();
 })
