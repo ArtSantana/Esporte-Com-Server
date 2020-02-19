@@ -36,7 +36,6 @@ const presetBase = {
     matrixBackTeamB: baseMatrizes,
 }
 
-
 app.get('/api', (request, response) => {
     db.londrina.find({}).sort({preset: 1}).exec((err, data)=> {
         if(err){
@@ -56,10 +55,10 @@ app.post('/api/presets', (request, reponse) => {
     db.londrina.update({preset: presetNumber}, {preset: presetNumber, presetPositions: data.positions});
     db.londrina.loadDatabase(); 
     /* É necessário dar load no banco para atualizar o registro */
+    response.end();
 })
 
-app.post('/api/delete', (request, response) => {
-    console.log('delete option');
+app.delete('/api/delete', (request, response) => {
     db.londrina.remove({}, {multi: true});
     db.londrina.loadDatabase();
     db.londrina.insert({preset: 1, presetPositions: presetBase});

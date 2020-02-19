@@ -84,8 +84,6 @@ $(document).ready(function()
         b11.style.left = e.touches[0].pageX - 1060 + "px";
     })
     //
-    //
-    //
     r1.addEventListener('touchmove', function(e)
     {
         r1.style.top = e.touches[0].pageY - 995 + "px";

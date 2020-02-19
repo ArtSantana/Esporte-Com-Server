@@ -21,7 +21,7 @@ async function postPreset(){
 
 async function postDeletePresets(){
 	postOptions = {
-		method: 'POST',
+		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json'
 		},
@@ -33,6 +33,5 @@ async function postDeletePresets(){
 async function getData(){
     const response = await fetch('/api');
 		const dataReceived = await response.json()
-    
     return dataReceived;
 }
