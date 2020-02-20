@@ -4,7 +4,7 @@ const DataStore = require('nedb');
 const PORT = 3000;
 
 app.listen(PORT, () => console.log(`The application is running at port ${PORT}`));
-app.use(express.static('./src/client/home'));
+app.use(express.static('./src/client/Home'));
 app.use(express.json({limit: '1mb'}));
 // Banco de dados.
 let db = [];
