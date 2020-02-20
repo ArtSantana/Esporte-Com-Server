@@ -7,6 +7,7 @@
     <body>
         <div class="grid">
             <canvas id="cv"></canvas>
+            <video src="../assets/Videos/le-festin.mp4" id="video"></video>
             <div id="bnt">
                 <img src="../assets/ArteButtons/PLAY.png" id="play">
                 <br>
@@ -15,6 +16,8 @@
                 <img src="../assets/ArteButtons/time A.png" id="black">
                 <br>
                 <img src="../assets/ArteButtons/TIME B.png" id="red">
+                <br>
+                <button id="btnVideo">Video</button>
                 <br>
                 <img src="../assets/ArteButtons/PAINT.png" id="startPaint">
                 <br>
@@ -73,6 +76,19 @@
                 <img id="r10"src="../assets/Presets/preset1/Time B/10.png" class="ImgJogadores" alt="">
                 <img id="r11"src="../assets/Presets/preset1/Time B/11.png" class="ImgJogadores" alt="">
             </div>  
+            <div id="menuVideo">
+                <button id="playVideo">Play</button>
+                <button id="pauseVideo">Pause</button>
+                <button id="backButton">Back</button>
+            </div>
+            <div id="videoSelect">
+                <button id="v1">Video 1</button>
+                <button id="v2">Video 2</button>
+                <button id="v3">Video 3</button>
+                <button id="v4">Video 4</button>
+                <button id="v5">Video 5</button>
+                <button id="v6">Video 6</button>
+            </div>
         </div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -85,6 +101,7 @@
     <script src="../common/coord.js"></script>
     <script src="../common/paint.js"></script>
     <script src="../common/paletteColor.js"></script>
+    <script src="../common/video.js"></script>
     <script src="../common/Animations.js"></script> 
     <script src="../common/presetButtons.js"></script>
     <script src="index.js"></script>

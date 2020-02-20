@@ -59,10 +59,10 @@ app.post('/api/presets', (request, reponse) => {
 })
 
 app.delete('/api/delete', (request, response) => {
-  db.londrina.remove({}, {multi: true});
+  console.log(request.body);
+  db.londrina.remove({preset: request.body.preset});
   db.londrina.loadDatabase();
-  for(let i=1; i<7; i++) {
-    db.londrina.insert({preset: i, presetPositions: presetBase});
-  }
+  // Restaurando ao default o preset deletado  
+  db.londrina.insert({preset: request.body.preset, presetPositions: presetBase});
   response.end();
 })

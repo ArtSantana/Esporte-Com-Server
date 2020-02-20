@@ -2,7 +2,7 @@ let playSwitch = 0;
 let recFlag = null;
 let recording = false;
 let gravadorPost = 0
-
+let del = false;
 // Removendo o clique direito da aplicação
 document.addEventListener('contextmenu', event => event.preventDefault());
 // Deixando os jogadores draggable
@@ -12,7 +12,8 @@ for(i=1; i<12; i++){
 }
 
 $("#deleteButton").click(() =>{
-	postDeletePresets();
+	del = true;
+	alert('Selecione um preset a ser EXCLUÍDO');
 })
 
 const dbInformation = getData();
@@ -21,8 +22,8 @@ let matrizes = new Array();
 Promise.resolve(dbInformation).then(dataReceived => {
 	matrizes = dataReceived;
 })
-
-function Gravador(){ // O gravadorPost é diminuido em 1 para acertar o index do objeto.
+// O gravadorPost é diminuido em 1 para acertar o index do objeto.
+function Gravador(){ 
 	if(recFlag == false){
 		recFlag = true;
 		matrizGoPositions(gravadorPost - 1);
@@ -51,6 +52,12 @@ function handlePresetClick(n){
 }
 
 $("#presetButton1").click(function(){
+	if(del) {
+		del = false;
+		postDeletePresets(1);
+		alert('Deletado preset 1');
+		return;
+	}
 	if(recording){
 		handlePresetClick(1);
 		return;
@@ -60,6 +67,12 @@ $("#presetButton1").click(function(){
 });
 
 $("#presetButton2").click(function(){
+	if(del) {
+		del = false;
+		postDeletePresets(2);
+		alert('Deletado preset 2');
+		return;
+	}
 	if(recording){
 		handlePresetClick(2);
 		return;
@@ -68,6 +81,12 @@ $("#presetButton2").click(function(){
 	ReturnPosition(playSwitch);	
 });
 $("#presetButton3").click(()=>{
+	if(del) {
+		del = false;
+		postDeletePresets(3);
+		alert('Deletado preset 3');
+		return;
+	}
 	if(recording){
 		handlePresetClick(3);
 		return;
@@ -76,6 +95,12 @@ $("#presetButton3").click(()=>{
 	ReturnPosition(playSwitch);
 })
 $("#presetButton4").click(()=>{
+	if(del) {
+		del = false;
+		postDeletePresets(4);
+		alert('Deletado preset 4');
+		return;
+	}
 	if(recording){
 		handlePresetClick(4);
 		return;
@@ -84,6 +109,12 @@ $("#presetButton4").click(()=>{
 	ReturnPosition(playSwitch);
 })
 $("#presetButton5").click(()=>{
+	if(del) {
+		del = false;
+		postDeletePresets(5);
+		alert('Deletado preset 5');
+		return;
+	}
 	if(recording){
 		handlePresetClick(5);
 		return;
@@ -92,6 +123,12 @@ $("#presetButton5").click(()=>{
 	ReturnPosition(playSwitch);
 })
 $("#presetButton6").click(()=>{
+	if(del) {
+		del = false;
+		postDeletePresets(6);
+		alert('Deletado preset 6');
+		return;
+	}
 	if(recording){
 		handlePresetClick(6);
 		return;

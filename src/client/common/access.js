@@ -19,13 +19,17 @@ async function postPreset(){
 	fetch('/api/presets', postOptions);
 }
 
-async function postDeletePresets(){
+async function postDeletePresets(n){
+	delPreset = {
+		preset: n
+	}
+	console.log(n);
 	postOptions = {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify()
+		body: JSON.stringify(delPreset)
 	}
 	fetch('/api/delete', postOptions);
 }
