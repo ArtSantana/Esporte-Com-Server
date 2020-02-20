@@ -23,7 +23,6 @@ async function postDeletePresets(n){
 	delPreset = {
 		preset: n
 	}
-	console.log(n);
 	postOptions = {
 		method: 'DELETE',
 		headers: {
