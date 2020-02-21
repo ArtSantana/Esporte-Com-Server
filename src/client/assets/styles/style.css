@@ -87,11 +87,7 @@ body {
     margin-top: 3.84vh;
 }
 
-#bnt img {
-    max-width: 6vw;
-}
-
-#presetButtons img {
+#bnt img, #presetButtons img, #menuVideo, #videoSelect{
     max-width: 6vw;
 }
 
@@ -137,6 +133,7 @@ body {
     justify-self: center;
     margin-top: 30vh;
     visibility: hidden;
+    max-width: 6vw;
 }
 
 #videoSelect {
@@ -149,3 +146,24 @@ body {
     visibility: hidden;
 }
 body::-webkit-scrollbar { width: 0 !important }
+
+.btnMenu {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.btnMenu:hover,
+.btnMenu:focus,
+.btnMenu:active {
+    transform: scale(1.1);
+}
+
+.palettePosition {
+    margin-top: -20vh;
+}

@@ -62,24 +62,20 @@ function drawMouse(e) {
   ctx.moveTo(e.pageX - fixerHorizontalDraw, e.pageY - fixerVerticalDraw);
 }
 
+function clearCanvas() {
+  ctx.clearRect(0, 0, 1920, 1080);
+  enablePaintFunction = false;
+  arrowFlag = false;
+  visibilityPaletteColor = false;
+  visibilityPalette(visibilityPaletteColor);
+}
 // Necessário o uso da função neste arquivos pois,
 // o ctx fica preso a esse escopo e é necessário
 // que seja limpo o canvas ao dar play no video.
-$("#playVideo").click(() => {
-  ctx.clearRect(0, 0, 1920, 1080);
-  enablePaintFunction = false;
-  arrowFlag = false;
-  visibilityPaletteColor = false;
-  visibilityPalette(visibilityPaletteColor);
-})
-
-$(".clearCanvas").click(function(){
-  ctx.clearRect(0, 0, 1920, 1080);
-  enablePaintFunction = false;
-  arrowFlag = false;
-  visibilityPaletteColor = false;
-  visibilityPalette(visibilityPaletteColor);
-})
+$("#backButton").click(() => clearCanvas());
+$("#btnVideo").click(() => clearCanvas());
+$("#playVideo").click(() => clearCanvas());
+$(".clearCanvas").click(() => clearCanvas());
 
 bntStartPaint.click(function(){
   enablePaintFunction = true;

@@ -7,6 +7,7 @@ $("#btnVideo").click(() => {
   $("#paletteColor").css('visibility', 'hidden');
   $("#menuVideo").css('visibility', 'visible');
   $("#videoSelect").css('visibility', 'visible');
+  $("#paletteColor").addClass('palettePosition');
 })
 
 $("#backButton").click(() => {
@@ -18,6 +19,7 @@ $("#backButton").click(() => {
   $("#video").trigger('pause');
   $("#video").css('visibility', 'hidden');
   $("#paletteColor").css('visibility', 'hidden');
+  $("#paletteColor").removeClass('palettePosition');
 })
 
 $("#v1").click(() => $("#video").attr('src', "../assets/Videos/v1.mp4"));
