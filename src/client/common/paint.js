@@ -1,5 +1,5 @@
 
-const bntStartPaint = $("#startPaint");
+const bntStartPaint = $(".startPaint");
 const canvas = $("#cv")[0];
 const ctx = canvas.getContext("2d");
 let visibilityPaletteColor = false;
@@ -62,7 +62,18 @@ function drawMouse(e) {
   ctx.moveTo(e.pageX - fixerHorizontalDraw, e.pageY - fixerVerticalDraw);
 }
 
-$("#clearCanvas").click(function(){
+// Necessário o uso da função neste arquivos pois,
+// o ctx fica preso a esse escopo e é necessário
+// que seja limpo o canvas ao dar play no video.
+$("#playVideo").click(() => {
+  ctx.clearRect(0, 0, 1920, 1080);
+  enablePaintFunction = false;
+  arrowFlag = false;
+  visibilityPaletteColor = false;
+  visibilityPalette(visibilityPaletteColor);
+})
+
+$(".clearCanvas").click(function(){
   ctx.clearRect(0, 0, 1920, 1080);
   enablePaintFunction = false;
   arrowFlag = false;
@@ -92,7 +103,7 @@ canvas.addEventListener('touchstart', startArrowTouch);
 canvas.addEventListener('mousedown', startArrow);
 canvas.addEventListener('mouseup', endArrow);
 
-$("#arrow").click(() => {
+$(".arrow").click(() => {
   arrowFlag = true;
   visibilityPaletteColor = false;
   visibilityPalette(visibilityPaletteColor);
@@ -119,7 +130,7 @@ function startArrowTouch(e) {
 	ctx.stroke();
   }		
 }
-	
+
 function startArrow(e) {
   if(!arrowFlag) return; 
   visibilityPaletteColor = false;

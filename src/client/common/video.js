@@ -17,6 +17,7 @@ $("#backButton").click(() => {
   $("#videoSelect").css('visibility', 'hidden');
   $("#video").trigger('pause');
   $("#video").css('visibility', 'hidden');
+  $("#paletteColor").css('visibility', 'hidden');
 })
 
 $("#v1").click(() => $("#video").attr('src', "../assets/Videos/v1.mp4"));
