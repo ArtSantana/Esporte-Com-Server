@@ -16,7 +16,7 @@ async function postPreset(){
 		},
 		body: JSON.stringify(data)
 	}
-	fetch('/api/presets', postOptions);
+	fetch('/api', postOptions);
 }
 
 async function postDeletePresets(n){
@@ -30,7 +30,7 @@ async function postDeletePresets(n){
 		},
 		body: JSON.stringify(delPreset)
 	}
-	fetch('/api/delete', postOptions);
+	fetch('/api', postOptions);
 }
 
 async function getData(){
