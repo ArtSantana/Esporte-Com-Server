@@ -163,7 +163,3 @@ body::-webkit-scrollbar { width: 0 !important }
 .btnMenu:active {
     transform: scale(1.1);
 }
-
-.palettePosition {
-    margin-top: -20vh;
-}
