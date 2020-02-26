@@ -11,7 +11,6 @@ function matrizBackPositions(n){
             }    
         }
     }
-    console.log(matrizes[n]);
 }
 
 function matrizGoPositions(n){
@@ -27,5 +26,4 @@ function matrizGoPositions(n){
             }    
         }
     }
-    console.log(matrizes[n]);
 }
