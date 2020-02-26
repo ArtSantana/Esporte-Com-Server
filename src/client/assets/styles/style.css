@@ -1,5 +1,4 @@
-html
-{
+html {
     touch-action: none;
     user-select: none;
     background-image: url(campex.png);
@@ -10,96 +9,85 @@ html
     background-size: cover;
 }
 
-body
-{
+body {
     width: 100vw;
     height: 100vh;
     position: fixed;
 }
 
-.grid
-{
+.grid {
     display: grid;
 
     grid-template-columns: 80vw 7.5vw 6vw 6vw;
     grid-template-rows: 81vh 9vh 10vh;
     z-index: 1;
 }
-#frame
-{
+#frame {
     margin-top: 1%;
     height: 850px;
     width: 1600px;    
-        
     margin-left: 2%;    
     grid-column-start: 1;
     grid-row-start: 1;
 }
 
-.ImgJogadores
-{
+.ImgJogadores {
     max-width: 5vw;
     height: auto;
 }
 
-.Jogadores
-{
+.Jogadores {
     position: relative;
     z-index: 9999;
 }
 
-#TimeA
-{
+#TimeA {
     grid-row-start: 2;
 }
 
-#TimeB
-{
+#TimeB {
     grid-row-start: 3;
     visibility: hidden;
 }
 
-
-#bnt
-{    
+#bnt {    
     margin-top: 5vw;
     grid-column-start: 4;
     grid-row-start: 1;        
-
     display: flex;
     flex-direction: column;
     justify-self: center;
 }
 
-
-#presetButtons
-{    
+#presetButtons {    
     margin-top: 5vw;
     margin-right: 10px;
     grid-column-start: 3;
     grid-row-start: 1;        
-
     display: flex;
     flex-direction: column;
     justify-self: center;
 }
 
-#cv
-{
+#cv {
     position: absolute;
     margin-top: 3.7vh;
     margin-left: 7vw;
-
     z-index: 999;
 }
 
-#bnt img 
-{
-    max-width: 6vw;
+#video {
+    visibility: hidden;
+    z-index: 99;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    height: 81.7vh;
+    width: 81.7vw;
+    margin-left: 4vw;
+    margin-top: 3.84vh;
 }
 
-#presetButtons img
-{
+#bnt img, #presetButtons img, #menuVideo, #videoSelect{
     max-width: 6vw;
 }
 
@@ -137,4 +125,41 @@ body
     border-top-right-radius: 10px;
 }
 
+#menuVideo {
+    grid-row-start: 1;
+    grid-column-start: 4;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 30vh;
+    visibility: hidden;
+    max-width: 6vw;
+}
+
+#videoSelect {
+    grid-column-start: 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 35vh;
+    visibility: hidden;
+}
 body::-webkit-scrollbar { width: 0 !important }
+
+.btnMenu {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.btnMenu:hover,
+.btnMenu:focus,
+.btnMenu:active {
+    transform: scale(1.1);
+}

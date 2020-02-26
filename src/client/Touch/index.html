@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Touch</title>
+        <link rel="stylesheet" href="../assets/styles/style.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="grid">
+            <canvas id="cv"></canvas>
+            <video src="../assets/Videos/le-festin.mp4" id="video"></video>
+            <div id="bnt">
+                <img src="../assets/ArteButtons/PLAY.png" id="play" class="btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/time A.png" id="black" class="btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/TIME B.png" id="red" class="btnMenu">
+                <br>
+                <button id="btnVideo">Video</button>
+                <br>
+                <img src="../assets/ArteButtons/PAINT.png" class="startPaint btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/seta.png" class="arrow btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/BORRACHA.png" class="clearCanvas btnMenu">
+                <div id="paletteColor">
+                    <div id="topColors">
+                        <div id="redColor"></div>
+                        <div id="white"></div>
+                    </div>
+                    <div id="bottomColors">
+                        <div id="yellow"></div>
+                        <div id="blue"></div>
+                    </div>
+                </div>
+            </div>     
+            <div id="presetButtons">
+                <img src="../assets/ArteButtons/PRESET 1.png" id="presetButton1" class="btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/PRESET 2.png" id="presetButton2" class="btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/PRESET 3.png" id="presetButton3" class="btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/PRESET 4.png" id="presetButton4" class="btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/PRESET 5.png" id="presetButton5" class="btnMenu">
+                <br>
+                <img src="../assets/ArteButtons/PRESET 6.png" id="presetButton6" class="btnMenu">
+            </div>
+            <div id="TimeA" class="Jogadores">
+                <img id="b1"src="../assets/Presets/preset1/Time A/1.png" class="ImgJogadores" alt="">
+                <img id="b2"src="../assets/Presets/preset1/Time A/2.png" class="ImgJogadores" alt="">
+                <img id="b3"src="../assets/Presets/preset1/Time A/3.png" class="ImgJogadores" alt="">
+                <img id="b4"src="../assets/Presets/preset1/Time A/4.png" class="ImgJogadores" alt="">
+                <img id="b5"src="../assets/Presets/preset1/Time A/5.png" class="ImgJogadores" alt="">
+                <img id="b6"src="../assets/Presets/preset1/Time A/6.png" class="ImgJogadores" alt="">
+                <img id="b7"src="../assets/Presets/preset1/Time A/7.png" class="ImgJogadores" alt="">
+                <img id="b8"src="../assets/Presets/preset1/Time A/8.png" class="ImgJogadores" alt="">
+                <img id="b9"src="../assets/Presets/preset1/Time A/9.png" class="ImgJogadores" alt="">
+                <img id="b10"src="../assets/Presets/preset1/Time A/10.png" class="ImgJogadores" alt="">
+                <img id="b11"src="../assets/Presets/preset1/Time A/11.png" class="ImgJogadores" alt="">
+            </div>
+            <div id="TimeB" class="Jogadores">
+                <img id="r1"src="../assets/Presets/preset1/Time B/1.png" class="ImgJogadores" alt="">
+                <img id="r2"src="../assets/Presets/preset1/Time B/2.png" class="ImgJogadores" alt="">
+                <img id="r3"src="../assets/Presets/preset1/Time B/3.png" class="ImgJogadores" alt="">
+                <img id="r4"src="../assets/Presets/preset1/Time B/4.png" class="ImgJogadores" alt="">
+                <img id="r5"src="../assets/Presets/preset1/Time B/5.png" class="ImgJogadores" alt="">
+                <img id="r6"src="../assets/Presets/preset1/Time B/6.png" class="ImgJogadores" alt="">
+                <img id="r7"src="../assets/Presets/preset1/Time B/7.png" class="ImgJogadores" alt="">
+                <img id="r8"src="../assets/Presets/preset1/Time B/8.png" class="ImgJogadores" alt="">
+                <img id="r9"src="../assets/Presets/preset1/Time B/9.png" class="ImgJogadores" alt="">
+                <img id="r10"src="../assets/Presets/preset1/Time B/10.png" class="ImgJogadores" alt="">
+                <img id="r11"src="../assets/Presets/preset1/Time B/11.png" class="ImgJogadores" alt="">
+            </div> 
+            <div id="menuVideo">
+                <img src="../assets/ArteButtons/PLAY.png" id="playVideo" class="btnMenu">
+                <button id="pauseVideo">Pause</button>
+                <button id="backButton">Back</button>
+                <img src="../assets/ArteButtons/PAINT.png" class="startPaint btnMenu">
+                <img src="../assets/ArteButtons/seta.png" class="arrow btnMenu">
+                <img src="../assets/ArteButtons/BORRACHA.png" class="clearCanvas btnMenu">
+            </div>
+            <div id="videoSelect">
+                <button id="v1">Video 1</button>
+                <button id="v2">Video 2</button>
+                <button id="v3">Video 3</button>
+                <button id="v4">Video 4</button>
+                <button id="v5">Video 5</button>
+                <button id="v6">Video 6</button>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>        
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../common//access.js"></script>
+    <script src="../common/coord.js"></script>
+    <script src="../common/paint.js"></script>
+    <script src="../common/paletteColor.js"></script>
+    <script src="../common/video.js"></script>
+    <script src="../common/Animations.js"></script>    
+    <script src="../common/presetButtons.js"></script>
+    <script src="index.js"></script>
+    <script src="../common/touchDraggable.js"></script>
+    </html>
