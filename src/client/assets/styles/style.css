@@ -131,7 +131,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    margin-top: 30vh;
+    margin-top: 17vh;
     visibility: hidden;
     max-width: 6vw;
 }
@@ -142,7 +142,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    margin-top: 35vh;
+    margin-top: 17vh;
     visibility: hidden;
 }
 body::-webkit-scrollbar { width: 0 !important }
