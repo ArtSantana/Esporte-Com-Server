@@ -29,11 +29,12 @@ function Gravador(){
 		matrizGoPositions(gravadorPost - 1);
 		data.positions = matrizes[gravadorPost-1].presetPositions;
 		data.presetNumber = gravadorPost;
-		
+		$("#rec").attr('src', '../assets/ArteButtons/REC.png');
 		postPreset();
 		alert('PRESET SALVO')
 	}
 	else{ // Always enter here first
+		$("#rec").attr('src', '../assets/ArteButtons/stop.png');
 		alert("Selecione o preset a ser gravado");
 		recording = true;
 		recFlag = false;
@@ -44,99 +45,56 @@ $("#play").click(function(){
 	GoPosition(playSwitch);
 });
 
-function handlePresetClick(n){
+function handleRecordPresetClick(n){
 	alert('Você está gravando no preset ' + n)
 	matrizBackPositions(n-1);
 	gravadorPost = n;
 	recording = false;
 }
 
-$("#presetButton1").click(function(){
+function HandleDelete(n) {
+	del = false;
+	postDeletePresets(n);
+	alert(`Deletado preset ${n}`);
+}
+
+function handlePresetClick(n) {
 	if(del) {
-		del = false;
-		postDeletePresets(1);
-		alert('Deletado preset 1');
+		HandleDelete(n);
+		return
+	}
+	if(recording) {
+		handleRecordPresetClick(n);
 		return;
 	}
-	if(recording){
-		handlePresetClick(1);
-		return;
-	}
-	playSwitch = 0;
+	playSwitch = n-1;
 	ReturnPosition(playSwitch);
+}
+
+$("#presetButton1").click(() => {
+	handlePresetClick(1);
 });
 
-$("#presetButton2").click(function(){
-	if(del) {
-		del = false;
-		postDeletePresets(2);
-		alert('Deletado preset 2');
-		return;
-	}
-	if(recording){
-		handlePresetClick(2);
-		return;
-	}
-	playSwitch = 1;
-	ReturnPosition(playSwitch);	
+$("#presetButton2").click(() => {
+	handlePresetClick(2);
 });
-$("#presetButton3").click(()=>{
-	if(del) {
-		del = false;
-		postDeletePresets(3);
-		alert('Deletado preset 3');
-		return;
-	}
-	if(recording){
-		handlePresetClick(3);
-		return;
-	}
-	playSwitch = 2;
-	ReturnPosition(playSwitch);
-})
-$("#presetButton4").click(()=>{
-	if(del) {
-		del = false;
-		postDeletePresets(4);
-		alert('Deletado preset 4');
-		return;
-	}
-	if(recording){
-		handlePresetClick(4);
-		return;
-	}
-	playSwitch = 3;
-	ReturnPosition(playSwitch);
-})
-$("#presetButton5").click(()=>{
-	if(del) {
-		del = false;
-		postDeletePresets(5);
-		alert('Deletado preset 5');
-		return;
-	}
-	if(recording){
-		handlePresetClick(5);
-		return;
-	}
-	playSwitch = 4;
-	ReturnPosition(playSwitch);
-})
-$("#presetButton6").click(()=>{
-	if(del) {
-		del = false;
-		postDeletePresets(6);
-		alert('Deletado preset 6');
-		return;
-	}
-	if(recording){
-		handlePresetClick(6);
-		return;
-	}
-	playSwitch = 5;
-	ReturnPosition(playSwitch);
+
+$("#presetButton3").click(() => {
+	handlePresetClick(3);
 })
 
-$("#rec").click(() =>{
+$("#presetButton4").click(() => {
+	handlePresetClick(4);
+})
+
+$("#presetButton5").click(() => {
+	handlePresetClick(5);
+})
+
+$("#presetButton6").click(() => {
+	handlePresetClick(6);
+})
+
+$("#rec").click(() => {
 	Gravador();
 });

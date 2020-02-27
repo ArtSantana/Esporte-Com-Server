@@ -51,7 +51,7 @@ body {
 }
 
 #bnt {    
-    margin-top: 5vw;
+    margin-top: 4vw;
     grid-column-start: 4;
     grid-row-start: 1;        
     display: flex;
@@ -60,7 +60,7 @@ body {
 }
 
 #presetButtons {    
-    margin-top: 5vw;
+    margin-top: 4vw;
     margin-right: 10px;
     grid-column-start: 3;
     grid-row-start: 1;        
@@ -131,7 +131,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    margin-top: 30vh;
+    margin-top: 17vh;
     visibility: hidden;
     max-width: 6vw;
 }
@@ -142,7 +142,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-self: center;
-    margin-top: 35vh;
+    margin-top: 17vh;
     visibility: hidden;
 }
 body::-webkit-scrollbar { width: 0 !important }
