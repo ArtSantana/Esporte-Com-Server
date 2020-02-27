@@ -1,18 +1,36 @@
-
 const bntStartPaint = $(".startPaint");
 const canvas = $("#cv")[0];
 const ctx = canvas.getContext("2d");
 let visibilityPaletteColor = false;
 let paint = false, enablePaintFunction = false, arrowFlag = false;
 let startX, startY, endX, endY;
-const fixerHorizontalDraw = screen.width * 90 / 1366
+let fixerHorizontalDraw = screen.width * 93 / 1366
 const fixerVerticalDraw = screen.height * 25 / 768
-const fixerHorizontalArrow = screen.width * 125 / 1920
+let fixerHorizontalArrow = screen.width * 127 / 1920
 const fixerVerticalArrow = screen.height * 30 / 1080;
 let arrowDraw = false;
+
 ctx.canvas.height = screen.height * 77.5 / 100 
 ctx.canvas.width = screen.width * 72.5 / 100
 ctx.strokeStyle = 'red';
+
+// Making the canvas look bigger
+$("#btnVideo").click(() => {
+  ctx.canvas.height = screen.height * 82 / 100;
+  ctx.canvas.width = screen.width * 82 / 100;
+  // Necessário alteração do fixed de width pois é alterado a margin-left
+  fixerHorizontalDraw = screen.width * 66 / 1366
+  fixerHorizontalArrow = screen.width * 96 / 1920
+  $("#cv").css('margin-left', '4%');
+})
+//Making the canvas look smaller
+$("#backButton").click(() => {
+  ctx.canvas.height = screen.height * 77.5 / 100;
+  ctx.canvas.width = screen.width * 72.5 / 100;
+  fixerHorizontalDraw = screen.width * 93 / 1366
+  fixerHorizontalArrow = screen.width * 127 / 1920
+  $("#cv").css('margin-left', '7%');
+})
 
 function startPaint() {
   paint = true;
@@ -146,7 +164,6 @@ function endArrow(e) {
   drawArrow(startX-fixerHorizontalArrow, startY-fixerVerticalArrow, endX-fixerHorizontalArrow, endY-fixerVerticalArrow);
   ctx.stroke();
 }
-
 
 function drawArrow(fromx, fromy, tox, toy){
 //variables to be used when creating the arrow
