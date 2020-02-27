@@ -51,7 +51,7 @@ body {
 }
 
 #bnt {    
-    margin-top: 5vw;
+    margin-top: 4vw;
     grid-column-start: 4;
     grid-row-start: 1;        
     display: flex;
@@ -60,7 +60,7 @@ body {
 }
 
 #presetButtons {    
-    margin-top: 5vw;
+    margin-top: 4vw;
     margin-right: 10px;
     grid-column-start: 3;
     grid-row-start: 1;        

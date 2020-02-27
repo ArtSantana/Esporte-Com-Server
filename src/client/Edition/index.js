@@ -29,11 +29,12 @@ function Gravador(){
 		matrizGoPositions(gravadorPost - 1);
 		data.positions = matrizes[gravadorPost-1].presetPositions;
 		data.presetNumber = gravadorPost;
-		
+		$("#rec").attr('src', '../assets/ArteButtons/REC.png');
 		postPreset();
 		alert('PRESET SALVO')
 	}
 	else{ // Always enter here first
+		$("#rec").attr('src', '../assets/ArteButtons/stop.png');
 		alert("Selecione o preset a ser gravado");
 		recording = true;
 		recFlag = false;
